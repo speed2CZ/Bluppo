@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/objects/Medusa_2.png" type="Texture" id=1]
+[ext_resource path="res://assets/objects/Medusa_3.png" type="Texture" id=2]
+[ext_resource path="res://assets/objects/Medusa_1.png" type="Texture" id=3]
+[ext_resource path="res://src/Medusa.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+} ]
+
+[node name="Medusa" type="KinematicBody2D" groups=[
+"World",
+]]
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 16, 16 )
+frames = SubResource( 2 )
+animation = "active"
+frame = 2
+playing = true
+
+[node name="RayCast2D_Down" type="RayCast2D" parent="."]
+position = Vector2( 16, 16 )
+enabled = true
+cast_to = Vector2( 0, 32 )
+collision_mask = 2
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2( 16, 16 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 32 )
+collision_mask = 2
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2( 16, 16 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 32 )
+collision_mask = 2

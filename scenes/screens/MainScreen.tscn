@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/ui/MainMenu.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://scenes/screens/UIButtonSmall.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ExitOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ExitOverlay:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ExitOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ExitOverlay:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 16.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = -14.0
+margin_right = 352.0
+margin_bottom = 194.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OnePlayerButton" parent="Menu" instance=ExtResource( 3 )]
+
+[node name="Label" parent="Menu/OnePlayerButton" index="0"]
+text = "1 Player"
+
+[node name="TwoPlayersButton" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 52.0
+margin_bottom = 100.0
+
+[node name="Label" parent="Menu/TwoPlayersButton" index="0"]
+text = "2 players"
+
+[node name="InstructionsButton" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 104.0
+margin_bottom = 152.0
+
+[node name="Label" parent="Menu/InstructionsButton" index="0"]
+text = "Instructions"
+
+[node name="ExitButton" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 156.0
+margin_bottom = 204.0
+
+[node name="Label" parent="Menu/ExitButton" index="0"]
+text = "Exit"
+
+[node name="ExitOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
+[connection signal="pressed" from="Menu/OnePlayerButton" to="." method="startSinglePlayer"]
+[connection signal="pressed" from="Menu/TwoPlayersButton" to="." method="startMultiplayer"]
+[connection signal="pressed" from="Menu/InstructionsButton" to="." method="showInstructions"]
+[connection signal="pressed" from="Menu/ExitButton" to="." method="_on_ExitButton_pressed"]
+
+[editable path="Menu/OnePlayerButton"]
+
+[editable path="Menu/TwoPlayersButton"]
+
+[editable path="Menu/InstructionsButton"]
+
+[editable path="Menu/ExitButton"]

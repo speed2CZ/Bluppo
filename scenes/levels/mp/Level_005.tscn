@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/LevelData.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/objects/Present.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/objects/WoodenBarrel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/objects/SteelBarrel.tscn" type="PackedScene" id=6]
+
+[node name="Level_005" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+requiredFishes = 6
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 0, 22, 0, 1, 23, 0, 2, 24, 0, 3, 25, 0, 4, 26, 0, 5, 27, 0, 6, 22, 0, 7, 23, 0, 8, 24, 0, 9, 25, 0, 10, 26, 0, 11, 27, 0, 12, 22, 0, 13, 23, 0, 14, 24, 0, 15, 25, 0, 16, 26, 0, 17, 27, 0, 18, 22, 0, 19, 23, 0, 65536, 0, 0, 65538, 55, 0, 65555, 0, 0, 131072, 0, 0, 131076, 34, 0, 131077, 34, 0, 131078, 34, 0, 131079, 34, 0, 131080, 34, 0, 131081, 34, 0, 131082, 34, 0, 131083, 34, 0, 131085, 34, 0, 131086, 34, 0, 131087, 34, 0, 131088, 34, 0, 131089, 34, 0, 131091, 0, 0, 196608, 0, 0, 196610, 34, 0, 196611, 34, 0, 196612, 34, 0, 196614, 34, 0, 196615, 34, 0, 196616, 34, 0, 196617, 34, 0, 196618, 34, 0, 196619, 34, 0, 196620, 34, 0, 196621, 34, 0, 196622, 34, 0, 196623, 34, 0, 196624, 34, 0, 196625, 34, 0, 196627, 0, 0, 262144, 0, 0, 262146, 34, 0, 262147, 34, 0, 262148, 34, 0, 262149, 34, 0, 262150, 34, 0, 262151, 34, 0, 262152, 34, 0, 262153, 34, 0, 262154, 34, 0, 262156, 34, 0, 262157, 34, 0, 262158, 34, 0, 262160, 34, 0, 262161, 34, 0, 262163, 0, 0, 327680, 0, 0, 327682, 34, 0, 327683, 34, 0, 327684, 34, 0, 327685, 34, 0, 327686, 34, 0, 327687, 34, 0, 327688, 34, 0, 327689, 34, 0, 327690, 34, 0, 327691, 34, 0, 327692, 34, 0, 327693, 34, 0, 327694, 34, 0, 327695, 34, 0, 327696, 34, 0, 327697, 34, 0, 327699, 0, 0, 393216, 0, 0, 393218, 34, 0, 393219, 34, 0, 393220, 34, 0, 393221, 34, 0, 393222, 34, 0, 393224, 34, 0, 393225, 34, 0, 393226, 34, 0, 393227, 34, 0, 393228, 34, 0, 393229, 34, 0, 393230, 34, 0, 393231, 34, 0, 393232, 34, 0, 393233, 34, 0, 393235, 0, 0, 458752, 0, 0, 458754, 34, 0, 458755, 34, 0, 458757, 34, 0, 458758, 34, 0, 458759, 34, 0, 458760, 34, 0, 458761, 34, 0, 458762, 34, 0, 458763, 34, 0, 458764, 34, 0, 458765, 34, 0, 458766, 34, 0, 458767, 34, 0, 458768, 34, 0, 458769, 34, 0, 458771, 0, 0, 524288, 0, 0, 524290, 34, 0, 524291, 34, 0, 524292, 34, 0, 524293, 34, 0, 524294, 34, 0, 524295, 34, 0, 524296, 34, 0, 524297, 34, 0, 524299, 34, 0, 524300, 34, 0, 524301, 34, 0, 524302, 34, 0, 524304, 34, 0, 524305, 34, 0, 524307, 0, 0, 589824, 0, 0, 589826, 34, 0, 589827, 34, 0, 589828, 34, 0, 589829, 34, 0, 589830, 34, 0, 589831, 34, 0, 589832, 34, 0, 589833, 34, 0, 589834, 34, 0, 589835, 34, 0, 589836, 34, 0, 589837, 34, 0, 589838, 34, 0, 589839, 34, 0, 589840, 34, 0, 589841, 34, 0, 589843, 0, 0, 655360, 0, 0, 655362, 34, 0, 655363, 34, 0, 655364, 34, 0, 655365, 34, 0, 655366, 34, 0, 655367, 34, 0, 655368, 34, 0, 655369, 34, 0, 655370, 34, 0, 655371, 34, 0, 655372, 34, 0, 655374, 34, 0, 655375, 34, 0, 655376, 34, 0, 655377, 34, 0, 655379, 0, 0, 720896, 0, 0, 720898, 34, 0, 720899, 34, 0, 720901, 34, 0, 720902, 34, 0, 720903, 34, 0, 720905, 34, 0, 720906, 34, 0, 720907, 34, 0, 720908, 34, 0, 720909, 34, 0, 720910, 34, 0, 720911, 34, 0, 720912, 34, 0, 720913, 34, 0, 720915, 0, 0, 786432, 0, 0, 786434, 34, 0, 786435, 34, 0, 786436, 34, 0, 786437, 34, 0, 786438, 34, 0, 786439, 34, 0, 786440, 34, 0, 786441, 34, 0, 786442, 34, 0, 786443, 34, 0, 786444, 34, 0, 786445, 34, 0, 786447, 34, 0, 786448, 34, 0, 786449, 34, 0, 786451, 0, 0, 851968, 0, 0, 851971, 34, 0, 851972, 34, 0, 851973, 34, 0, 851974, 34, 0, 851975, 34, 0, 851976, 34, 0, 851977, 34, 0, 851978, 34, 0, 851979, 34, 0, 851980, 34, 0, 851981, 34, 0, 851982, 34, 0, 851983, 34, 0, 851984, 34, 0, 851985, 34, 0, 851987, 0, 0, 917504, 0, 0, 917505, 55, 0, 917523, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 576, 448 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 32, 32 )
+
+[node name="Seeweeds" type="Node" parent="."]
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Present" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 160, 96 )
+spawns = "EnemyBlueFish"
+
+[node name="Present2" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 384, 64 )
+spawns = "CollectableBlueFish"
+
+[node name="Present3" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 480, 256 )
+spawns = "CollectableBlueFish"
+
+[node name="Present4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 320, 256 )
+spawns = "EnemyBlueFish"
+
+[node name="SteelBarrel" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 480, 128 )
+
+[node name="SteelBarrel2" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 352, 128 )
+spawns = "BrownFish"
+
+[node name="SteelBarrel3" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 416, 320 )
+
+[node name="SteelBarrel4" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 128, 352 )
+spawns = "BrownFish"
+
+[node name="WoodenBarrel" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 448, 384 )
+spawns = "YellowFish"
+
+[node name="WoodenBarrel2" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 256, 352 )
+spawns = "CollectableGreenFish"
+
+[node name="WoodenBarrel3" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 224, 192 )
+spawns = "YellowFish"
+
+[node name="WoodenBarrel4" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 128, 224 )
+spawns = "CollectableGreenFish"
+
+[node name="Fishes" type="Node" parent="."]
+
+[node name="Collectable" type="Node" parent="Fishes"]
+
+[node name="Static" type="Node" parent="Fishes"]
+
+[node name="Enemy" type="Node" parent="Fishes"]
+
+[node name="Friendly" type="Node" parent="Fishes"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LightMud.wav-520b3b83f72deec3074f75fe015d677c.sample"
+
+[deps]
+
+source_file="res://sounds/LightMud.wav"
+dest_files=[ "res://.import/LightMud.wav-520b3b83f72deec3074f75fe015d677c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,121 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://sounds/ExitOpen.wav" type="AudioStream" id=2]
+[ext_resource path="res://sounds/Pushed.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/FishCollected.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/SeaweedCollected.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/Explosion.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/BubbleSmallCreated.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/BombActive.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/BrownFishActive.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/ImpactGround.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/BubbleSmallBurst.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/ExitFull.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/BrownFishEating.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/OxygenCollected.wav" type="AudioStream" id=14]
+[ext_resource path="res://sounds/BigBubbleBurst.wav" type="AudioStream" id=15]
+[ext_resource path="res://sounds/BigBubbleCreated.wav" type="AudioStream" id=16]
+[ext_resource path="res://sounds/EnemyBlueFishEating.wav" type="AudioStream" id=17]
+[ext_resource path="res://sounds/PurpleFishEating.wav" type="AudioStream" id=18]
+[ext_resource path="res://sounds/BombCollected.wav" type="AudioStream" id=19]
+[ext_resource path="res://sounds/FriendlyBlueFishAction.wav" type="AudioStream" id=20]
+[ext_resource path="res://sounds/LightMud.wav" type="AudioStream" id=21]
+[ext_resource path="res://sounds/FriendlyBlueFishEating.wav" type="AudioStream" id=22]
+[ext_resource path="res://sounds/BubbleRedCreated.wav" type="AudioStream" id=23]
+[ext_resource path="res://sounds/BubbleRedBurst.wav" type="AudioStream" id=24]
+[ext_resource path="res://sounds/SlipOff.wav" type="AudioStream" id=25]
+[ext_resource path="res://sounds/OutOfOxygen.wav" type="AudioStream" id=26]
+[ext_resource path="res://sounds/BadPresent.wav" type="AudioStream" id=27]
+[ext_resource path="res://sounds/UI_Accept.wav" type="AudioStream" id=28]
+[ext_resource path="res://sounds/Theme.ogg" type="AudioStream" id=29]
+[ext_resource path="res://sounds/UI_Move.wav" type="AudioStream" id=30]
+
+[node name="SoundBank" type="Node"]
+pause_mode = 2
+
+[node name="BadPresent" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+
+[node name="BombActive" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="BombCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="BrownFishActive" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="BrownFishEating" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="BubbleBigBurst" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="BubbleBigCreated" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[node name="BubbleRedBurst" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+
+[node name="BubbleRedCreated" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+
+[node name="BubbleSmallBurst" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="BubbleSmallCreated" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="EnemyBlueFishEating" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="ExitFull" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="ExitOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="FriendlyBlueFishAction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="FriendlyBlueFishEating" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+
+[node name="FishCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="ImpactGround" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="LightMud" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+
+[node name="OutOfOxygen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+
+[node name="OxygenCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="PurpleFishEating" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="Pushed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="SeaweedCollected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="SlipOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+
+[node name="UI_Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+
+[node name="UI_Focus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )

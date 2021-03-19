@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fishes/Fish_3_Down.png" type="Texture" id=1]
+[ext_resource path="res://src/Classes/CollectableFish.gd" type="Script" id=2]
+[ext_resource path="res://assets/fishes/Fish_3_Left.png" type="Texture" id=3]
+[ext_resource path="res://assets/fishes/Fish_3_Right.png" type="Texture" id=4]
+[ext_resource path="res://assets/fishes/Fish_3_Up.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 15 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "stucked",
+"speed": 5.0
+} ]
+
+[node name="CollectableBlueFish" type="KinematicBody2D" groups=[
+"Collectable",
+"Fish",
+]]
+collision_layer = 8
+collision_mask = 2147483663
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 16, 16 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 16, 16 )
+frames = SubResource( 3 )
+animation = "down"
+
+[node name="RayCast2D_Down" type="RayCast2D" parent="."]
+position = Vector2( 16, 16 )
+enabled = true
+cast_to = Vector2( 0, 32 )
+collision_mask = 15
+
+[node name="RayCast2D_Up" type="RayCast2D" parent="."]
+position = Vector2( 16, 16 )
+enabled = true
+cast_to = Vector2( 0, -32 )
+collision_mask = 15
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2( 16, 16 )
+enabled = true
+cast_to = Vector2( -32, 0 )
+collision_mask = 15
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2( 16, 16 )
+enabled = true
+cast_to = Vector2( 32, 0 )
+collision_mask = 15

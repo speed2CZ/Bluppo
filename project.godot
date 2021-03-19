@@ -1,0 +1,186 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "AllObjects",
+"class": "AllFishes",
+"language": "GDScript",
+"path": "res://src/Classes/AllFishes.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "AllObjects",
+"language": "GDScript",
+"path": "res://src/Classes/AllObjects.gd"
+}, {
+"base": "MovableObject",
+"class": "Bubble",
+"language": "GDScript",
+"path": "res://src/Classes/Bubble.gd"
+}, {
+"base": "MovableObject",
+"class": "BubbleGenerator",
+"language": "GDScript",
+"path": "res://src/Classes/BubbleGenerator.gd"
+}, {
+"base": "AllObjects",
+"class": "Collectable",
+"language": "GDScript",
+"path": "res://src/Classes/Collectable.gd"
+}, {
+"base": "AllFishes",
+"class": "CollectableFish",
+"language": "GDScript",
+"path": "res://src/Classes/CollectableFish.gd"
+}, {
+"base": "AllFishes",
+"class": "HungryFish",
+"language": "GDScript",
+"path": "res://src/Classes/HungryFish.gd"
+}, {
+"base": "MovableObject",
+"class": "LightObject",
+"language": "GDScript",
+"path": "res://src/Classes/LightObject.gd"
+}, {
+"base": "AllObjects",
+"class": "MovableObject",
+"language": "GDScript",
+"path": "res://src/Classes/MovableObject.gd"
+}, {
+"base": "AllFishes",
+"class": "StickyFish",
+"language": "GDScript",
+"path": "res://src/Classes/StickyFish.gd"
+} ]
+_global_script_class_icons={
+"AllFishes": "",
+"AllObjects": "",
+"Bubble": "",
+"BubbleGenerator": "",
+"Collectable": "",
+"CollectableFish": "",
+"HungryFish": "",
+"LightObject": "",
+"MovableObject": "",
+"StickyFish": ""
+}
+
+[application]
+
+config/name="Bluppo"
+run/main_scene="res://scenes/screens/MainScreen.tscn"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
+
+[autoload]
+
+SaveLoad="*res://src/Autoload/SaveLoad.gd"
+Options="*res://src/Autoload/Options.gd"
+Game="*res://src/Autoload/Game.gd"
+PlayerData="*res://src/Autoload/PlayerData.gd"
+SoundManager="*res://src/Autoload/SoundManager.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input]
+
+ui_pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777225,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_restart={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player1_Bomb={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player2_Left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player2_Right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player2_Up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player2_Down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player2_Bomb={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player1_Up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player1_Down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player1_Left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Player1_Right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+ ]
+}
+game_increase_speed={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777349,"unicode":0,"echo":false,"script":null)
+ ]
+}
+game_decrease_speed={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777347,"unicode":0,"echo":false,"script":null)
+ ]
+}
+game_reset_speed={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777345,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Fishes"
+2d_physics/layer_4="Collectable"
+
+[rendering]
+
+environment/default_clear_color=Color( 0.301961, 0.301961, 0.301961, 1 )
+environment/default_environment="res://default_env.tres"

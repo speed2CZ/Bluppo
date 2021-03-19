@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BubbleRedCreated.wav-e1f5bcd7bf50269c3f57a9b7aa16a3ff.sample"
+
+[deps]
+
+source_file="res://sounds/BubbleRedCreated.wav"
+dest_files=[ "res://.import/BubbleRedCreated.wav-e1f5bcd7bf50269c3f57a9b7aa16a3ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
