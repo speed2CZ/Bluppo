@@ -11,6 +11,8 @@ func _ready():
 		#get_node("/root").add_child(node)
 		#get_parent().call_deferred("add_child", node)
 		#transition = node.get_node("AnimationPlayer")
+	
+	randomize()
 
 	open()
 

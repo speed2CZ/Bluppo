@@ -37,7 +37,6 @@ func spreadSideways():
 		tick = 0
 
 func playRandomizedAnimation():
-	rng.randomize()
 	var offset = rng.randi() % animation.get_sprite_frames().get_frame_count("default")
 	animation.set_frame(offset)
 

@@ -19,6 +19,5 @@ func spreadDownwards():
 		tick = 0
 
 func playRandomizedAnimation():
-	randomize()
 	var offset = randi() % animation.get_sprite_frames().get_frame_count("default")
 	animation.set_frame(offset)

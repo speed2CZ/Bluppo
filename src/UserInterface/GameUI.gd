@@ -149,7 +149,6 @@ func closePauseMenu():
 
 # Sets the background, picked randomly each level
 func setBackground():
-	randomize()
 	bgTexture = load("res://assets/world/bg_" + str(randi() % 4 + 1) + ".png")
 	background.set_texture(bgTexture)
 
