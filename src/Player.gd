@@ -150,7 +150,7 @@ func move(dir):
 	#move_and_collide(movedir * gridSize)
 	Game.updatePosition(self, last_position)
 	# Create ambient bubbles if moving down
-	if dir == Vector2.DOWN:
+	if dir == Vector2.DOWN and not Game.getObjectAtPosition(last_position + Vector2.UP * Game.gridSize):
 		Game.spawnObject("objects", "BubbleSmall", last_position)
 
 # Using direction to calculate and spawn a bomb at correct positon

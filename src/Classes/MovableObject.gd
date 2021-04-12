@@ -45,14 +45,18 @@ func moveObject():
 	else:
 		slip(Below)
 
-# Move the object 
+# Move the object
+# markAsUpdated is false when pushed by the player, so the object can still fall down at the same tick
 func move(dir, markAsUpdated := true):
 	last_position = position
 	position += dir * Game.gridSize
 	Game.updatePosition(self, last_position, markAsUpdated)
 	# Create ambient bubbles if moving down
-	if dir == Vector2.DOWN:
+	if dir == Vector2.DOWN and not Game.getObjectAtPosition(last_position + Vector2.UP * Game.gridSize):
 		Game.spawnObject("objects", "BubbleSmall", last_position)
+	# or when pushed by the player
+	elif not markAsUpdated and not Game.getObjectAtPosition(last_position + Vector2.UP * Game.gridSize):
+		Game.spawnObject("objects", "BubbleSmall", last_position + Vector2.UP * Game.gridSize)
 
 # Function that tries to slip objected off from each other
 # thosee objects have to be set as slippery
