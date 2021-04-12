@@ -4,9 +4,10 @@ onready var animation = $AnimatedSprite
 
 var tick = 0
 func _ready():
-	# Add tick function
-	var _x = Game.connect("tick", self, "spreadDownwards")
 	playRandomizedAnimation()
+
+func onTick():
+	spreadDownwards()
 
 func spreadDownwards():
 	tick += 1

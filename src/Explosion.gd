@@ -5,10 +5,11 @@ onready var animation = $AnimatedSprite
 var tick = 1
 
 func _ready():
-	var _x = Game.connect("tick", self, "playExplosionAnimation")
-	
 	slipOff = false
 	killable = false
+
+func onTick():
+	playExplosionAnimation()
 
 func playExplosionAnimation():
 	tick += 1

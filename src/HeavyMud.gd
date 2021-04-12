@@ -13,9 +13,10 @@ func _ready():
 	rng.randomize()
 	spreadTick = rng.randi_range(7, 40)
 
-	# Add tick function
-	var _x = Game.connect("tick", self, "spreadSideways")
 	#playRandomizedAnimation()
+
+func onTick():
+	spreadSideways()
 
 # Spreads to the sides, tick at which it spread is randomized each time
 func spreadSideways():

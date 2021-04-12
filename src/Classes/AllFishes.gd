@@ -28,6 +28,9 @@ var stucked = false
 func _ready():
 	last_position = position
 
+func onTick():
+	moveFish()
+
 # Decide the initial direction from the surrounding tiles
 func findOutInitialVector():
 	currentDirection = Vector2.UP

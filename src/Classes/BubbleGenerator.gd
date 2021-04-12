@@ -7,8 +7,8 @@ var tick = 0
 var bubbleTick = 2
 var bubbleType = "Small"
 
-func _ready():
-	var _x = Game.connect("tick", self, "bubbleThread")
+func onTick():
+	bubbleThread()
 
 # Generate bubbles every other tick
 func bubbleThread():

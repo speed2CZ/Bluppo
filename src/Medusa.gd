@@ -12,9 +12,8 @@ var rng = RandomNumberGenerator.new()
 var cycle = 0
 var killingCycle = 1
 
-func _ready():
-	# Add tick function
-	var _x = Game.connect("tick", self, "jiggle")
+func onTick():
+	jiggle()
 
 # Animation has 4 stages, the player can sneak pass only during the first one
 func jiggle():

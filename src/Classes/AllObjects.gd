@@ -11,11 +11,17 @@ var can_move = true
 
 func _ready():
 	Game.registerObject(self)
+	
+	# Change the animation speed to match the game speed
 	var anim = get_node_or_null("AnimatedSprite")
 	if anim:
 		var _x = Game.connect("newGameSpeed", self, "changeAnimSpeed")
 		changeAnimSpeed(Game.gameSpeed)
 
+func onTick():
+	pass
+
+# Changes the animation speed for the animated sprite
 func changeAnimSpeed(value):
 	var new = 1.0 + (0.1 * (value - 1))
 	$AnimatedSprite.set_speed_scale(new)

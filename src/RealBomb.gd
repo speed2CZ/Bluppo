@@ -7,8 +7,6 @@ var tick = 1
 func _ready():
 	heavy = false
 
-	var _x = Game.connect("bombTimer", self, "playDetonateAnimation")
-
 func playDetonateAnimation():
 	if tick <= 7:
 		animation.play("Explosion_" + str(tick))

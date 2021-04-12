@@ -13,6 +13,9 @@ var heavy = true
 var last_position = position
 var slipOffVectors = [Vector2.RIGHT, Vector2.LEFT]
 
+func onTick():
+	moveObject()
+
 # Main funciton that tries to move objects one tile lower
 # also handles collisions with other objects, based on objects parameters
 func moveObject():

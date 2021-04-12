@@ -17,7 +17,6 @@ extends Node
 
 signal tick
 signal movePlayer
-signal bombTimer
 signal loadNextLevel
 signal restartLevel
 signal newGameSpeed(value)
@@ -125,11 +124,14 @@ func tick():
 	currentTick += 1
 	#print("Tick: ", currentTick)
 
+	emit_signal("tick")
 	moveObjects()
+	
+	# Decrease players' oxygen
 	for i in Players.size():
 		if Players[i]:
 			PlayerData.set_Oxygen(Players[i], -1)
-	emit_signal("tick")
+	
 
 # Returns current tick number
 func getCurrectTick():
@@ -193,16 +195,15 @@ func moveObjects():
 
 	# Players get to move first
 	emit_signal("movePlayer")
-	emit_signal("bombTimer")
 
 	for y in allObjects.size():
 		for x in allObjects[y].size():
 			var obj = allObjects[y][x]
-			if obj and not updatedObjects.has(obj):
-				if obj.is_in_group("Movable"):
-					obj.moveObject()
-				elif obj.is_in_group("Fish") and obj.canMove():
-					obj.moveFish()
+			if obj and not updatedObjects.has(obj) and obj.has_method("onTick"):
+				obj.onTick()
+			elif not obj:
+				if (randi() % 2000) == 0:
+					spawnObject("objects", "BubbleSmall", Vector2(x, y) * gridSize)
 
 # Update the position in our main array
 # @param markAsUpdated - Use false if player moved the object

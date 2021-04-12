@@ -35,6 +35,9 @@ func _ready():
 	
 	last_position = position
 
+func onTick():
+	movePlayer()
+
 var UP = false
 var DOWN = false
 var LEFT = false
