@@ -7,6 +7,11 @@ var tick = 1
 func _ready():
 	heavy = false
 
+func onTick():
+	if tick <=8:
+		moveObject()
+	playDetonateAnimation()
+
 func playDetonateAnimation():
 	if tick <= 7:
 		animation.play("Explosion_" + str(tick))
