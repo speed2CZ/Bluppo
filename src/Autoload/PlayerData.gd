@@ -6,7 +6,6 @@ signal open_exit
 signal bomb_count(value)
 signal oxygen_count(id, value)
 signal life_count(value)
-signal game_over
 
 # Constants
 const maxBombs = 8
@@ -63,11 +62,8 @@ func set_lives(value: int):
 	if value < lives:
 		# Player died
 		records["Deaths"] += 1
-		# End the game if we go under 0 lives
-		if lives < 0:
-			emit_signal("game_over")
-		else:
-			lives = value
+
+		lives = value
 	else:
 		lives = min(value + numPlayers - 1, maxLives)
 	#print("*DEBUG: PlayerData: Lives set to: ", lives)

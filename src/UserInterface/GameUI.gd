@@ -9,6 +9,7 @@ onready var levelStats = $UserInterface/LevelStats
 onready var separation = $UserInterface/Views/MermaidSeparation
 onready var background = $Background
 onready var pauseTexture = $PauseTexture
+onready var gameOverTexture = $GameOverTexture
 onready var startAnimation = $GetReady/AnimationPlayer
 #onready var startAnimation = get_node("/root/Transition/AnimationPlayer")
 onready var pauseMenu = $PauseMenu
@@ -26,6 +27,7 @@ var bgTexture
 func _ready():
 	var _x = Game.connect("loadNextLevel", self, "loadNextLevel")
 	_x = Game.connect("restartLevel", self, "restartLevel")
+	_x = Game.connect("gameOver", self, "gameOver")
 	_x = pauseMenu.connect("closed", self, "closePauseMenu")
 	_x = loadMenu.connect("closed", self, "closePauseMenu")
 
@@ -175,6 +177,8 @@ func startGame():
 
 # Show game over texture and return to the main menu.
 func gameOver():
+	self.paused = true
+	pauseTexture.visible = false
 	$GameOverTexture.visible = true
 
 	close()

@@ -19,6 +19,7 @@ signal tick
 signal movePlayer
 signal loadNextLevel
 signal restartLevel
+signal gameOver
 signal newGameSpeed(value)
 
 var gameSpeeds = {
@@ -116,8 +117,12 @@ func levelDone():
 # Called when player is eaten by an enemy fish, killed by a medusa, an exposion
 # or when runs out of O2.
 func playerDied():
-	print("*DEBUG: Game: Player died. Restarting current level.")
-	emit_signal("restartLevel")
+	if PlayerData.lives == 0:
+		print("*DEBUG: Player died. Game over man, game over!")
+		emit_signal("gameOver")
+	else:
+		print("*DEBUG: Game: Player died. Restarting current level.")
+		emit_signal("restartLevel")
 
 func tick():
 	# TODO: reset ticks
