@@ -138,7 +138,7 @@ func populateSavedData():
 # Return the level name in the given bank or false.
 func getLevelInBank(bank):
 	if banks[bank]:
-		return banks[bank]["level"]
+		return banks[bank]
 	return false
 
 # Saves all time records.

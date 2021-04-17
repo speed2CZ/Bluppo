@@ -34,10 +34,11 @@ func close():
 
 func _on_Button_pressed(index):
 	if mode == "load":
-		var level = SaveLoad.getLevelInBank(index)
-		if level:
+		var bank = SaveLoad.getLevelInBank(index)
+		if bank:
 			close()
-			get_parent().loadLevel(level)
+			get_parent().loadLevel(bank["level"])
+			PlayerData.onLoad(bank["lives"])
 	else:
 		close()
 		SaveLoad.saveGame(index)

@@ -15,7 +15,8 @@ func _ready():
 	_x = PlayerData.connect("oxygen_count", self, "setOxygenCounter")
 	_x = Game.connect("newGameSpeed", self, "setGameSpeed")
 	
-	# Reset the bomb counter and update the game speed bar.
+	# Set the initial info
+	setLifeCounter(PlayerData.lives)
 	setBombCounter(0)
 	setGameSpeed(Game.get_game_speed())
 

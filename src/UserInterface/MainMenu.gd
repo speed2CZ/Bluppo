@@ -79,6 +79,7 @@ func startGame(level):
 	
 	# Load the level	
 	ui.loadLevel(level)
+	PlayerData.onLoad(10)
 
 	# Hide the main menu
 	visible = false
