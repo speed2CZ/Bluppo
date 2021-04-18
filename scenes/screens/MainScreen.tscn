@@ -1,62 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/ui/MainMenu.png" type="Texture" id=1]
 [ext_resource path="res://src/UserInterface/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/screens/UIButtonSmall.tscn" type="PackedScene" id=3]
-
-[sub_resource type="Animation" id=1]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/path = NodePath("ExitOverlay:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ExitOverlay:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/path = NodePath("ExitOverlay:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ExitOverlay:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -113,18 +59,6 @@ margin_bottom = 204.0
 
 [node name="Label" parent="Menu/ExitButton" index="0"]
 text = "Exit"
-
-[node name="ExitOverlay" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fade_in = SubResource( 1 )
-anims/fade_out = SubResource( 2 )
 [connection signal="pressed" from="Menu/OnePlayerButton" to="." method="startSinglePlayer"]
 [connection signal="pressed" from="Menu/TwoPlayersButton" to="." method="startMultiplayer"]
 [connection signal="pressed" from="Menu/InstructionsButton" to="." method="showInstructions"]

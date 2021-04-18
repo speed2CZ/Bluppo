@@ -1,17 +1,16 @@
 extends Control
 
 onready var menu = $Menu
-onready var animation = $AnimationPlayer
 onready var transition = get_node_or_null("/root/Transition/AnimationPlayer")
 
 func _ready():
 	# Add the node that handles transition animations (fade in, fade out).
-	#if not transition:
-		#var node = load("res://scenes/screens/Transition.tscn").instance()
-		#get_node("/root").add_child(node)
-		#get_parent().call_deferred("add_child", node)
-		#transition = node.get_node("AnimationPlayer")
-	
+	if not transition:
+		var node = load("res://scenes/screens/Transition.tscn").instance()
+		get_parent().call_deferred("add_child", node)
+		transition = node.get_node("AnimationPlayer")
+
+	# Randomize out RNG
 	randomize()
 
 	open()
@@ -28,7 +27,7 @@ func _unhandled_input(event):
 func open():
 	visible = true
 	# Init animation
-	animation.play("fade_out")
+	transition.play("fade_out")
 	# Select the first button
 	menu.get_children()[0].grab_focus()
 
@@ -59,8 +58,8 @@ func showInstructions():
 func _on_ExitButton_pressed():
 	Options.saveOptions()
 
-	animation.play("fade_in")
-	yield(animation, "animation_finished")
+	transition.play("fade_in")
+	yield(transition, "animation_finished")
 
 	get_tree().quit()
 
@@ -70,8 +69,8 @@ func startGame(level):
 	SoundManager.stopSound("Theme")
 	
 	# Play transition animation
-	animation.play("fade_in")
-	yield(animation, "animation_finished")
+	transition.play("fade_in")
+	yield(transition, "animation_finished")
 
 	# Create the game UI
 	var ui = load("res://scenes/screens/UserInterface.tscn").instance()
@@ -81,5 +80,5 @@ func startGame(level):
 	ui.loadLevel(level)
 	PlayerData.onLoad(10)
 
-	# Hide the main menu
-	visible = false
+	# Remove the main menu
+	queue_free()

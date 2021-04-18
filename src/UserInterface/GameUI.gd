@@ -10,8 +10,7 @@ onready var separation = $UserInterface/Views/MermaidSeparation
 onready var background = $Background
 onready var pauseTexture = $PauseTexture
 onready var gameOverTexture = $GameOverTexture
-onready var startAnimation = $GetReady/AnimationPlayer
-#onready var startAnimation = get_node("/root/Transition/AnimationPlayer")
+onready var transition = get_node("/root/Transition/AnimationPlayer")
 onready var pauseMenu = $PauseMenu
 onready var loadMenu = $LoadMenu
 
@@ -55,8 +54,8 @@ func _unhandled_input(event):
 # Figures out next level from the current one and load it.
 # If there is no next level, switches back to the main menu.
 func loadNextLevel():
-	startAnimation.play("fade_in")
-	yield(startAnimation, "animation_finished")
+	transition.play("fade_in_slow")
+	yield(transition, "animation_finished")
 
 	# Figure out the next level name from the current one
 	var levelName = Game.getCurrentLevel()
@@ -111,8 +110,8 @@ func loadLevel(levelName):
 # @param instant - defaults to false, skip the fade in animation.
 func restartLevel(instant:= false):
 	if not instant:
-		startAnimation.play("fade_in")
-		yield(startAnimation, "animation_finished")
+		transition.play("fade_in_slow")
+		yield(transition, "animation_finished")
 
 	PlayerData.lives -= 1
 
@@ -161,19 +160,19 @@ func playInitAnimation():
 	# Pause the game, play the animation and wait for player input to unpause
 	self.paused = true
 	pauseTexture.visible = false
-	$GetReady/GetReadyTexture.visible = true
-	startAnimation.play("fade_out")
-	yield(startAnimation, "animation_finished")
+	$GetReadyTexture.visible = true
+	transition.play("fade_out_slow")
+	yield(transition, "animation_finished")
 	canStartGame = true
 
 func playEndAnimation():
-	startAnimation.play("fade_in")
-	yield(startAnimation, "animation_finished")
+	transition.play("fade_in")
+	yield(transition, "animation_finished")
 
 func startGame():
 	gameStarted = true
 	self.paused = false
-	$GetReady/GetReadyTexture.visible = false
+	$GetReadyTexture.visible = false
 
 # Show game over texture and return to the main menu.
 func gameOver():
@@ -181,11 +180,18 @@ func gameOver():
 	pauseTexture.visible = false
 	$GameOverTexture.visible = true
 
-	close()
+	close(true)
 
 # Fade the screen and return to the main menu.
-func close():
-	startAnimation.play("fade_in_fast")
-	yield(startAnimation, "animation_finished")
-	get_node("/root").get_node("MainMenu").open()
+func close(slow := false):
+	# Slow transition used only with game over
+	if slow:
+		transition.play("fade_in_slow")
+	else:
+		transition.play("fade_in")
+	yield(transition, "animation_finished")
+
+	#get_node("/root").get_node("MainMenu").open()
+	var mainMenu = load("res://scenes/screens/MainScreen.tscn").instance()
+	get_node("/root").add_child(mainMenu)
 	queue_free()
