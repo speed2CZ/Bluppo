@@ -33,6 +33,7 @@ func _ready():
 func _unhandled_input(event):
 	# Wait for the init animation
 	if not canStartGame:
+		scene_tree.set_input_as_handled()
 		return
 	elif not gameStarted:
 		startGame()
@@ -109,6 +110,9 @@ func loadLevel(levelName):
 # Also decreases players' lives count.
 # @param instant - defaults to false, skip the fade in animation.
 func restartLevel(instant:= false):
+	# Restricts the input until the game is restarted
+	canStartGame = false
+	
 	if not instant:
 		transition.play("fade_in_slow")
 		yield(transition, "animation_finished")
