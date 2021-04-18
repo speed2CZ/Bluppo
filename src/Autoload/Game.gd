@@ -16,11 +16,11 @@
 extends Node
 
 signal tick
-signal movePlayer
-signal loadNextLevel
-signal restartLevel
-signal gameOver
-signal newGameSpeed(value)
+signal move_Player
+signal load_Next_Level
+signal restart_Level
+signal game_Over
+signal new_Game_Speed(value)
 
 var gameSpeeds = {
 	1: 5.0,
@@ -83,7 +83,7 @@ func set_game_speed(newSpeed):
 		timeStep = 1.0 / ticksPerSecond
 		print("*DEBUG: Game: New game speed is: %d, aka %.01f ticks per sec." % [gameSpeed, ticksPerSecond])
 		Options.setOption("speed", gameSpeed)
-		emit_signal("newGameSpeed", gameSpeed)
+		emit_signal("new_Game_Speed", gameSpeed)
 
 # Returns current game speed
 func get_game_speed():
@@ -112,17 +112,17 @@ func reset():
 # Called when all players reach their Exits. 
 func levelDone():
 	print("*DEBUG: Game: Level cleared. Loading next level.")
-	emit_signal("loadNextLevel")
+	emit_signal("load_Next_Level")
 
 # Called when player is eaten by an enemy fish, killed by a medusa, an exposion
 # or when runs out of O2.
 func playerDied():
 	if PlayerData.lives == 0:
 		print("*DEBUG: Player died. Game over man, game over!")
-		emit_signal("gameOver")
+		emit_signal("game_Over")
 	else:
 		print("*DEBUG: Game: Player died. Restarting current level.")
-		emit_signal("restartLevel")
+		emit_signal("restart_Level")
 
 func tick():
 	# TODO: reset ticks
@@ -199,7 +199,7 @@ func moveObjects():
 	updatedObjects = []
 
 	# Players get to move first
-	emit_signal("movePlayer")
+	emit_signal("move_Player")
 
 	for y in allObjects.size():
 		for x in allObjects[y].size():

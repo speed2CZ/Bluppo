@@ -26,8 +26,8 @@ func smth():
 	print(time_return, date_return)
 
 func _ready():
-	var _x = Game.connect("loadNextLevel", self, "saveRecords")
-	_x = Game.connect("restartLevel", self, "saveRecords")
+	var _x = Game.connect("load_Next_Level", self, "saveRecords")
+	_x = Game.connect("restart_Level", self, "saveRecords")
 
 func getSaveData():
 	var entry = {

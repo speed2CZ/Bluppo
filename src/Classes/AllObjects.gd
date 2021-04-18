@@ -15,7 +15,7 @@ func _ready():
 	# Change the animation speed to match the game speed
 	var anim = get_node_or_null("AnimatedSprite")
 	if anim:
-		var _x = Game.connect("newGameSpeed", self, "changeAnimSpeed")
+		var _x = Game.connect("new_Game_Speed", self, "changeAnimSpeed")
 		changeAnimSpeed(Game.gameSpeed)
 
 func onTick():

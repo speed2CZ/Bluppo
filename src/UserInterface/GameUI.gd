@@ -24,9 +24,9 @@ var paused: = false setget set_paused
 var bgTexture
 
 func _ready():
-	var _x = Game.connect("loadNextLevel", self, "loadNextLevel")
-	_x = Game.connect("restartLevel", self, "restartLevel")
-	_x = Game.connect("gameOver", self, "gameOver")
+	var _x = Game.connect("load_Next_Level", self, "loadNextLevel")
+	_x = Game.connect("restart_Level", self, "restartLevel")
+	_x = Game.connect("game_Over", self, "gameOver")
 	_x = pauseMenu.connect("closed", self, "closePauseMenu")
 	_x = loadMenu.connect("closed", self, "closePauseMenu")
 

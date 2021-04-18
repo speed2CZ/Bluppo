@@ -4,7 +4,7 @@
 #               - sound for HeavyMud
 extends Node
 
-signal newVolume(value)
+signal new_Volume(value)
 
 # OG Bluppo had two modes for sounds. One where all effetcs would play in the game
 # and second where only the music would play. Could do both, but sticking to the original.
@@ -76,7 +76,7 @@ func decreaseVolume():
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), new)
 		#_on_Volume_Changed(new)
 		Options.setOption("volume", new)
-		emit_signal("newVolume", new)
+		emit_signal("new_Volume", new)
 
 func increaseVoluem():
 	#var current = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
@@ -86,4 +86,4 @@ func increaseVoluem():
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), new)
 		#_on_Volume_Changed(new)
 		Options.setOption("volume", new)
-		emit_signal("newVolume", new)
+		emit_signal("new_Volume", new)

@@ -16,8 +16,8 @@ var gameSpeedLabels = {
 }
 
 func _ready():
-	var _x = Game.connect("newGameSpeed", self, "_on_Speed_Changed")
-	_x = SoundManager.connect("newVolume", self, "_on_Volume_Changed")
+	var _x = Game.connect("new_Game_Speed", self, "_on_Speed_Changed")
+	_x = SoundManager.connect("new_Volume", self, "_on_Volume_Changed")
 	
 	_on_Volume_Changed(int(Options.getOption("volume")))
 

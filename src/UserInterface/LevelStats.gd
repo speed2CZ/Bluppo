@@ -13,7 +13,7 @@ func _ready():
 	_x = PlayerData.connect("fish_count", self, "setFishCounter")
 	_x = PlayerData.connect("life_count", self, "setLifeCounter")
 	_x = PlayerData.connect("oxygen_count", self, "setOxygenCounter")
-	_x = Game.connect("newGameSpeed", self, "setGameSpeed")
+	_x = Game.connect("new_Game_Speed", self, "setGameSpeed")
 	
 	# Set the initial info
 	setLifeCounter(PlayerData.lives)

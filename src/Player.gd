@@ -20,7 +20,7 @@ var last_position = Vector2()
 
 func _ready():
 	# Add tick function
-	var _x = Game.connect("movePlayer", self, "movePlayer")
+	var _x = Game.connect("move_Player", self, "movePlayer")
 	_x = PlayerData.connect("oxygen_count", self, "drownedCheck")
 	
 	# Get the player's ID from the node name
