@@ -69,10 +69,6 @@ func set_lives(value: int):
 	#print("*DEBUG: PlayerData: Lives set to: ", lives)
 	emit_signal("life_count", lives)
 
-func onLoad(value):
-	lives = value
-	emit_signal("life_count", lives)
-
 # Updates the number of currently collected fishes in the level.
 func set_fishes(value: int):
 	numFishes = value
@@ -94,6 +90,7 @@ func set_Bombs(value: int):
 		push_error("ERROR: PlayerData: Number of bombs went through the seafloor! (or searoof)")
 		return
 
+	# Keep track of stuff for the all time records
 	if value < numBombs:
 		#print("*DEBUG: PlayerData: Bomb used, currently have: ", value)
 		records["BombsUsed"] += 1
@@ -146,3 +143,7 @@ func resetRecords():
 	for key in records:
 		records[key] = 0
 	SaveLoad.saveRecords()
+
+func onLoad(value):
+	lives = value
+	emit_signal("life_count", lives)
