@@ -30,8 +30,10 @@ func spreadSideways():
 		var Left = position + Vector2.LEFT * Game.gridSize
 		if not Game.getObjectAtPosition(Right):
 			Game.spawnObject("objects", "HeavyMud", Right)
+			Game.playSound("HeavyMud")
 		if not Game.getObjectAtPosition(Left):
 			Game.spawnObject("objects", "HeavyMud", Left)
+			Game.playSound("HeavyMud")
 
 		tick = 0
 

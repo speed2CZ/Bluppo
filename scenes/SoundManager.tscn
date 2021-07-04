@@ -1,5 +1,6 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
+[ext_resource path="res://sounds/HeavyMud.wav" type="AudioStream" id=1]
 [ext_resource path="res://sounds/ExitOpen.wav" type="AudioStream" id=2]
 [ext_resource path="res://sounds/Pushed.wav" type="AudioStream" id=3]
 [ext_resource path="res://sounds/FishCollected.wav" type="AudioStream" id=4]
@@ -92,6 +93,9 @@ stream = ExtResource( 10 )
 
 [node name="LightMud" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
+
+[node name="HeavyMud" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 
 [node name="OutOfOxygen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
