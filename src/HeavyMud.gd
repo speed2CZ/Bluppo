@@ -2,46 +2,39 @@ extends MovableObject
 
 onready var animation = $AnimatedSprite
 
-var rng = RandomNumberGenerator.new()
-var spreadTick = 7
+# TODO: find out the correct timing and the spread pattern
+# Best guess from several observations:
+# Spreads on tick that are multiple of 7, probably up to 35
+# First pick seems to be random, but might not be
+var spreadTicks = [7, 14, 21, 28, 35]
+var spreadTick = randi() % spreadTicks.size()
 var tick = 0
 
 func _ready():
 	slipOff = false
 	heavy = false
-	
-	rng.randomize()
-	spreadTick = rng.randi_range(7, 40)
-
-	#playRandomizedAnimation()
 
 func onTick():
+	moveObject()
 	spreadSideways()
 
-# Spreads to the sides, tick at which it spread is randomized each time
+# Spreads to the sides
 func spreadSideways():
 	tick += 1
-	if tick == spreadTick: #TODO: find out the correct timing and the spread pattern
-		var direction = false
+	if tick == spreadTicks[spreadTick]:
+		spreadTick += 1
+		if spreadTick > spreadTicks.size() - 1:
+			spreadTick = 0
+
 		var Right = position + Vector2.RIGHT * Game.gridSize
 		var Left = position + Vector2.LEFT * Game.gridSize
 		if not Game.getObjectAtPosition(Right):
-			direction = Right
-		elif not Game.getObjectAtPosition(Left):
-			direction = Left
-
-		# If we have a direction, spawn a new mud and set the new timer
-		if direction:
-			Game.spawnObject("objects", "HeavyMud", direction)
-			spreadTick = rng.randi_range(7, 40)
+			Game.spawnObject("objects", "HeavyMud", Right)
+		if not Game.getObjectAtPosition(Left):
+			Game.spawnObject("objects", "HeavyMud", Left)
 
 		tick = 0
-
-func playRandomizedAnimation():
-	var offset = rng.randi() % animation.get_sprite_frames().get_frame_count("default")
-	animation.set_frame(offset)
 
 func onCollectedByPlayer(_playerId):
 	Game.playSound("SeaweedCollected")
 	destroy()
-	
