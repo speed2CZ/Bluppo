@@ -7,6 +7,7 @@ var movedir = Vector2()
 var dead = false
 var outOfOxygen = false
 var DEBUG = false
+var throwingBomb = false
 var id = 0 # Number taken from the node's name to distinguish Player 1 and 2
 
 var directions = {
@@ -67,6 +68,11 @@ func movePlayer():
 		if not Game.getObjectAtPosition(position + Vector2.DOWN * Game.gridSize):
 			move(Vector2.DOWN)
 		return
+
+	if throwingBomb:
+		if Input.is_action_pressed("Player%s_Bomb" % id):
+			return
+		throwingBomb = false
 	
 	UP = UP or Input.is_action_pressed("Player%s_Up" % id)
 	DOWN = DOWN or Input.is_action_pressed("Player%s_Down" % id)
@@ -155,6 +161,7 @@ func move(dir):
 
 # Using direction to calculate and spawn a bomb at correct positon
 func throwBomb(dir):
+	throwingBomb = true
 	PlayerData.numBombs -= 1
 
 	var pos = position + dir * Game.gridSize
