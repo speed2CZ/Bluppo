@@ -29,11 +29,12 @@ func moveObject():
 
 func burst():
 	anim.play("burst")
+	destroyNextTick = true
+
 	if ambient:
 		Game.playSound("BubbleSmallBurst")
 	else:
 		Game.playSound("BubbleBigBurst")
-	destroyNextTick = true
 
 func isDeadly():
 	return deadly

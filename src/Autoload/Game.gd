@@ -129,8 +129,8 @@ func tick():
 	currentTick += 1
 	#print("Tick: ", currentTick)
 
-	moveObjects()
 	emit_signal("tick")
+	moveObjects()
 	
 	# Decrease players' oxygen
 	for i in Players.size():
