@@ -15,7 +15,10 @@ export(String,
 
 func _ready():
 	heavy = false
-	slipOff = false
+	if "Steel" in name:
+		slipOff = false
+	else:
+		slipOff = true
 
 func canBePushed(_dir):
 	return false
