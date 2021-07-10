@@ -1,0 +1,186 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/LevelData.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/objects/SteelBarrel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/objects/WoodenBarrel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/objects/Present.tscn" type="PackedScene" id=6]
+
+[node name="Level_056" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+requiredFishes = 50
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 0, 22, 0, 1, 23, 0, 2, 24, 0, 3, 25, 0, 4, 26, 0, 5, 27, 0, 6, 22, 0, 7, 23, 0, 8, 24, 0, 9, 25, 0, 10, 26, 0, 11, 27, 0, 12, 22, 0, 13, 23, 0, 14, 24, 0, 15, 25, 0, 16, 26, 0, 17, 27, 0, 18, 22, 0, 19, 23, 0, 20, 24, 0, 21, 25, 0, 22, 26, 0, 23, 27, 0, 24, 22, 0, 25, 23, 0, 26, 24, 0, 27, 25, 0, 28, 26, 0, 29, 27, 0, 30, 22, 0, 31, 23, 0, 32, 24, 0, 33, 25, 0, 34, 26, 0, 65536, 2, 0, 65537, 34, 0, 65538, 34, 0, 65539, 36, 0, 65540, 34, 0, 65541, 34, 0, 65542, 35, 0, 65543, 34, 0, 65544, 34, 0, 65545, 34, 0, 65546, 34, 0, 65547, 34, 0, 65548, 34, 0, 65549, 34, 0, 65550, 36, 0, 65551, 36, 0, 65552, 34, 0, 65553, 34, 0, 65554, 34, 0, 65555, 36, 0, 65556, 34, 0, 65557, 34, 0, 65558, 34, 0, 65559, 34, 0, 65560, 34, 0, 65561, 34, 0, 65562, 34, 0, 65563, 34, 0, 65564, 34, 0, 65566, 34, 0, 65567, 34, 0, 65570, 55, 0, 131072, 2, 0, 131073, 34, 0, 131074, 34, 0, 131075, 34, 0, 131076, 34, 0, 131078, 34, 0, 131079, 34, 0, 131081, 34, 0, 131082, 34, 0, 131084, 34, 0, 131086, 34, 0, 131088, 34, 0, 131089, 34, 0, 131090, 34, 0, 131091, 34, 0, 131092, 34, 0, 131093, 36, 0, 131094, 36, 0, 131095, 34, 0, 131096, 34, 0, 131097, 36, 0, 131098, 34, 0, 131099, 34, 0, 131100, 34, 0, 131101, 34, 0, 131102, 34, 0, 131103, 36, 0, 131104, 34, 0, 131105, 34, 0, 131106, 2, 0, 196608, 2, 0, 196609, 34, 0, 196610, 34, 0, 196611, 34, 0, 196613, 36, 0, 196615, 34, 0, 196616, 34, 0, 196617, 36, 0, 196618, 36, 0, 196619, 34, 0, 196620, 34, 0, 196621, 34, 0, 196622, 34, 0, 196623, 35, 0, 196624, 34, 0, 196627, 34, 0, 196628, 34, 0, 196629, 36, 0, 196630, 34, 0, 196632, 34, 0, 196633, 35, 0, 196634, 34, 0, 196637, 34, 0, 196638, 34, 0, 196639, 34, 0, 196642, 2, 0, 262144, 2, 0, 262145, 34, 0, 262146, 34, 0, 262147, 34, 0, 262148, 34, 0, 262149, 34, 0, 262150, 35, 0, 262151, 35, 0, 262152, 34, 0, 262153, 36, 0, 262154, 34, 0, 262155, 35, 0, 262156, 35, 0, 262157, 34, 0, 262159, 34, 0, 262160, 34, 0, 262161, 34, 0, 262162, 34, 0, 262163, 34, 0, 262164, 34, 0, 262165, 34, 0, 262166, 34, 0, 262167, 34, 0, 262168, 34, 0, 262169, 36, 0, 262170, 34, 0, 262171, 34, 0, 262172, 34, 0, 262174, 34, 0, 262176, 34, 0, 262178, 2, 0, 327680, 2, 0, 327682, 34, 0, 327683, 34, 0, 327684, 36, 0, 327685, 34, 0, 327686, 35, 0, 327687, 34, 0, 327688, 35, 0, 327689, 35, 0, 327690, 35, 0, 327691, 34, 0, 327692, 34, 0, 327693, 34, 0, 327694, 35, 0, 327695, 35, 0, 327696, 36, 0, 327697, 34, 0, 327698, 34, 0, 327699, 34, 0, 327700, 35, 0, 327701, 34, 0, 327702, 34, 0, 327703, 34, 0, 327704, 35, 0, 327705, 36, 0, 327706, 34, 0, 327707, 34, 0, 327708, 36, 0, 327709, 34, 0, 327710, 34, 0, 327711, 34, 0, 327712, 36, 0, 327713, 34, 0, 327714, 2, 0, 393216, 2, 0, 393217, 50, 0, 393218, 34, 0, 393219, 34, 0, 393220, 36, 0, 393221, 34, 0, 393222, 35, 0, 393223, 34, 0, 393224, 34, 0, 393225, 36, 0, 393226, 36, 0, 393227, 36, 0, 393228, 34, 0, 393229, 34, 0, 393230, 34, 0, 393231, 34, 0, 393232, 34, 0, 393233, 34, 0, 393234, 34, 0, 393235, 34, 0, 393236, 34, 0, 393237, 34, 0, 393238, 34, 0, 393239, 36, 0, 393240, 34, 0, 393241, 36, 0, 393242, 34, 0, 393243, 34, 0, 393244, 34, 0, 393248, 34, 0, 393249, 34, 0, 393250, 2, 0, 458752, 2, 0, 458753, 34, 0, 458754, 50, 0, 458755, 34, 0, 458756, 34, 0, 458757, 34, 0, 458758, 34, 0, 458759, 34, 0, 458760, 34, 0, 458761, 36, 0, 458762, 34, 0, 458763, 34, 0, 458764, 36, 0, 458765, 34, 0, 458766, 34, 0, 458767, 34, 0, 458768, 34, 0, 458769, 34, 0, 458770, 36, 0, 458771, 34, 0, 458772, 34, 0, 458773, 34, 0, 458774, 34, 0, 458775, 34, 0, 458776, 34, 0, 458777, 34, 0, 458778, 34, 0, 458779, 35, 0, 458780, 34, 0, 458781, 34, 0, 458782, 34, 0, 458783, 34, 0, 458784, 34, 0, 458785, 34, 0, 458786, 2, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 2, 0, 524307, 2, 0, 524308, 2, 0, 524309, 2, 0, 524310, 2, 0, 524311, 2, 0, 524312, 2, 0, 524313, 2, 0, 524314, 2, 0, 524315, 2, 0, 524316, 2, 0, 524317, 2, 0, 524322, 2, 0, 589824, 2, 0, 589828, 34, 0, 589829, 49, 0, 589830, 49, 0, 589831, 49, 0, 589832, 34, 0, 589833, 48, 0, 589834, 34, 0, 589835, 35, 0, 589836, 34, 0, 589837, 49, 0, 589838, 48, 0, 589839, 48, 0, 589840, 34, 0, 589841, 34, 0, 589842, 34, 0, 589843, 49, 0, 589844, 34, 0, 589845, 34, 0, 589847, 35, 0, 589848, 34, 0, 589849, 34, 0, 589850, 34, 0, 589851, 34, 0, 589852, 35, 0, 589853, 34, 0, 589854, 34, 0, 589855, 36, 0, 589856, 34, 0, 589857, 34, 0, 589858, 2, 0, 655360, 2, 0, 655362, 62, 0, 655364, 34, 0, 655365, 49, 0, 655367, 49, 0, 655368, 34, 0, 655369, 34, 0, 655371, 34, 0, 655372, 34, 0, 655375, 34, 0, 655376, 34, 0, 655378, 36, 0, 655379, 34, 0, 655382, 34, 0, 655383, 34, 0, 655385, 48, 0, 655387, 34, 0, 655388, 34, 0, 655389, 34, 0, 655391, 34, 0, 655392, 34, 0, 655393, 34, 0, 655394, 2, 0, 720896, 2, 0, 720900, 34, 0, 720901, 34, 0, 720902, 34, 0, 720904, 34, 0, 720905, 34, 0, 720907, 48, 0, 720908, 34, 0, 720909, 34, 0, 720911, 34, 0, 720912, 49, 0, 720913, 34, 0, 720914, 34, 0, 720915, 34, 0, 720916, 34, 0, 720920, 48, 0, 720921, 34, 0, 720922, 34, 0, 720923, 34, 0, 720924, 49, 0, 720925, 34, 0, 720926, 48, 0, 720927, 34, 0, 720928, 34, 0, 720929, 34, 0, 720930, 2, 0, 786432, 2, 0, 786436, 34, 0, 786437, 34, 0, 786438, 34, 0, 786439, 34, 0, 786440, 34, 0, 786441, 34, 0, 786442, 34, 0, 786443, 34, 0, 786444, 34, 0, 786445, 34, 0, 786446, 34, 0, 786447, 34, 0, 786448, 34, 0, 786449, 34, 0, 786450, 34, 0, 786451, 34, 0, 786452, 34, 0, 786453, 34, 0, 786454, 34, 0, 786455, 34, 0, 786456, 34, 0, 786457, 34, 0, 786458, 34, 0, 786459, 34, 0, 786460, 34, 0, 786461, 34, 0, 786462, 34, 0, 786463, 34, 0, 786464, 34, 0, 786465, 34, 0, 786466, 2, 0, 851968, 2, 0, 851987, 62, 0, 852002, 2, 0, 917504, 2, 0, 917538, 2, 0, 983040, 2, 0, 983042, 60, 0, 983045, 60, 0, 983048, 60, 0, 983051, 60, 0, 983052, 60, 0, 983055, 60, 0, 983056, 60, 0, 983057, 60, 0, 983058, 60, 0, 983059, 60, 0, 983061, 60, 0, 983064, 60, 0, 983066, 60, 0, 983067, 60, 0, 983068, 60, 0, 983069, 60, 0, 983071, 60, 0, 983072, 60, 0, 983074, 2, 0, 1048576, 2, 0, 1048577, 73, 0, 1048578, 60, 0, 1048579, 60, 0, 1048580, 60, 0, 1048583, 60, 0, 1048586, 60, 0, 1048587, 60, 0, 1048588, 60, 0, 1048590, 60, 0, 1048595, 60, 0, 1048598, 60, 0, 1048599, 60, 0, 1048601, 60, 0, 1048604, 60, 0, 1048606, 60, 0, 1048609, 74, 0, 1048610, 2, 0, 1114112, 2, 0, 1114114, 60, 0, 1114115, 60, 0, 1114118, 60, 0, 1114121, 60, 0, 1114133, 60, 0, 1114135, 60, 0, 1114137, 60, 0, 1114139, 60, 0, 1114140, 60, 0, 1114142, 60, 0, 1114144, 34, 0, 1114145, 34, 0, 1114146, 2, 0, 1179648, 2, 0, 1179649, 62, 0, 1179650, 60, 0, 1179652, 60, 0, 1179654, 60, 0, 1179659, 60, 0, 1179661, 60, 0, 1179663, 57, 0, 1179664, 60, 0, 1179666, 60, 0, 1179667, 60, 0, 1179668, 58, 0, 1179671, 60, 0, 1179673, 60, 0, 1179676, 60, 0, 1179678, 60, 0, 1179681, 55, 0, 1179682, 2, 0, 1245184, 2, 0, 1245185, 2, 0, 1245186, 2, 0, 1245187, 2, 0, 1245188, 2, 0, 1245189, 2, 0, 1245190, 2, 0, 1245191, 2, 0, 1245192, 2, 0, 1245193, 2, 0, 1245194, 2, 0, 1245195, 2, 0, 1245196, 2, 0, 1245197, 2, 0, 1245198, 2, 0, 1245199, 2, 0, 1245200, 2, 0, 1245201, 2, 0, 1245202, 2, 0, 1245203, 2, 0, 1245204, 2, 0, 1245205, 2, 0, 1245206, 2, 0, 1245207, 2, 0, 1245208, 2, 0, 1245209, 2, 0, 1245210, 2, 0, 1245211, 2, 0, 1245212, 2, 0, 1245213, 2, 0, 1245214, 2, 0, 1245215, 2, 0, 1245216, 2, 0, 1245217, 2, 0, 1245218, 2, 0 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 576 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, 576 )
+
+[node name="Seeweeds" type="Node" parent="."]
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="SteelBarrel" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1056, 128 )
+
+[node name="SteelBarrel2" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1056, 96 )
+
+[node name="SteelBarrel3" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1056, 32 )
+spawns = "BrownFish"
+
+[node name="SteelBarrel4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1024, 32 )
+
+[node name="SteelBarrel5" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 992, 128 )
+spawns = "BrownFish"
+
+[node name="SteelBarrel6" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 928, 128 )
+
+[node name="SteelBarrel7" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 928, 192 )
+spawns = "BrownFish"
+
+[node name="SteelBarrel8" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 960, 192 )
+
+[node name="SteelBarrel9" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 992, 192 )
+
+[node name="SteelBarrel10" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 960, 320 )
+
+[node name="SteelBarrel11" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 832, 320 )
+
+[node name="SteelBarrel14" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 640, 320 )
+
+[node name="SteelBarrel15" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 544, 320 )
+
+[node name="SteelBarrel16" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 448, 320 )
+
+[node name="SteelBarrel19" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 128, 96 )
+
+[node name="SteelBarrel12" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 736, 96 )
+spawns = "BrownFish"
+
+[node name="SteelBarrel13" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 544, 96 )
+
+[node name="SteelBarrel17" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 416, 64 )
+
+[node name="SteelBarrel18" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 256, 64 )
+spawns = "BrownFish"
+
+[node name="WoodenBarrel" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 928, 32 )
+spawns = "YellowFish"
+
+[node name="WoodenBarrel2" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 480, 64 )
+spawns = "YellowFish"
+
+[node name="WoodenBarrel3" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 672, 320 )
+spawns = "YellowFish"
+
+[node name="WoodenBarrel6" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 672, 352 )
+spawns = "CollectableGreenFish"
+
+[node name="WoodenBarrel7" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 704, 352 )
+spawns = "CollectableGreenFish"
+
+[node name="WoodenBarrel8" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 736, 352 )
+spawns = "CollectableGreenFish"
+
+[node name="WoodenBarrel4" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 320, 320 )
+spawns = "YellowFish"
+
+[node name="WoodenBarrel5" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 448, 352 )
+spawns = "CollectableGreenFish"
+
+[node name="Present" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 1024, 96 )
+spawns = "CollectableBlueFish"
+
+[node name="Present2" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 896, 96 )
+spawns = "CollectableBlueFish"
+
+[node name="Present3" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 864, 96 )
+spawns = "EnemyBlueFish"
+
+[node name="Present4" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 768, 320 )
+spawns = "CollectableBlueFish"
+
+[node name="Present5" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 704, 288 )
+spawns = "CollectableBlueFish"
+
+[node name="Present7" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 416, 320 )
+spawns = "CollectableBlueFish"
+
+[node name="Present8" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 320, 352 )
+spawns = "CollectableBlueFish"
+
+[node name="Present9" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 224, 352 )
+spawns = "CollectableBlueFish"
+
+[node name="Present10" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 192, 320 )
+spawns = "EnemyBlueFish"
+
+[node name="Present6" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 576, 96 )
+spawns = "CollectableBlueFish"
+
+[node name="Present11" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 448, 128 )
+spawns = "CollectableBlueFish"
+
+[node name="Present12" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 352, 64 )
+spawns = "CollectableBlueFish"
+
+[node name="Present13" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 160, 64 )
+spawns = "CollectableBlueFish"
+
+[node name="Present14" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 192, 96 )
+spawns = "CollectableBlueFish"
+
+[node name="Fishes" type="Node" parent="."]
+
+[node name="Collectable" type="Node" parent="Fishes"]
+
+[node name="Static" type="Node" parent="Fishes"]
+
+[node name="Enemy" type="Node" parent="Fishes"]
+
+[node name="Friendly" type="Node" parent="Fishes"]
