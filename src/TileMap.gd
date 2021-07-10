@@ -14,8 +14,8 @@ var dataFishes = {
 }
 
 var dataObjects = {
-	"BarrelSteel": 44,
-	"BarrelWood": 45,
+	"SteelBarrel": 44,
+	"WoodenBarrel": 45,
 	"Bomb": 43,
 	"Box": 35,
 	"BubbleGeneratorRed": 56,
