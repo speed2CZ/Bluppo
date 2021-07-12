@@ -76,7 +76,7 @@ func moveFish():
 		if Above and Above.is_in_group("Movable") and Above.heavy and Above.falling:
 			return
 	
-	# If no special action was done, let!s try to move
+	# If no special action was done, let's try to move
 	if stucked:
 		# We're stucked, keeps the original vector we has before getting stucked or default one.
 		# Pretty obvious, only one direction can become available, so move wherever possible.
@@ -101,10 +101,11 @@ func moveFish():
 				anim.play("stucked")
 			return
 
-	#
+	# If the object we were following disappeared, keep moving forward until something shows up on the left or in front.
 	if not bumped and not Left and not BackLeft:
 		bumped = true
 	
+	# Normal movement, along some objects.
 	if not bumped:
 		if Front:
 			if Left and not Right:

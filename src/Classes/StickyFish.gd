@@ -14,6 +14,10 @@ func doSpecialAction():
 		# If it was sticked to a fish, wait one tick
 	if doingScpecialAction:
 		doingScpecialAction = false
+		
+		# TODO: Investigate exact behaviour.
+		#bumped = true
+		#currentDirection = Vector2.DOWN
 		return true
 	return false
 
