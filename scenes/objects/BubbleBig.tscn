@@ -36,3 +36,7 @@ shape = SubResource( 1 )
 position = Vector2( 16, 16 )
 frames = SubResource( 2 )
 playing = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 16, 16 )
+scale = Vector2( 1.6, 1.6 )

@@ -2,11 +2,12 @@ extends Bubble
 
 func _ready():
 	deadly = true
-	Game.playSound("BubbleRedCreated")
+	type = "Red"
 
 func burst():
 	anim.play("burst")
-	Game.playSound("BubbleRedBurst")
+	if visNotifier.is_on_screen():
+		Game.playSound("BubbleRedBurst")
 	destroyNextTick = true
 	# Check for a collision with the  player, kill 'em all!
 	var Above = Game.getObjectAtPosition(position + Vector2.UP * Game.gridSize)
