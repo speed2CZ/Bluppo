@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/LevelData.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/TileMap.tscn" type="PackedScene" id=3]
+
+[node name="Level_070" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+requiredFishes = 10
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 0 )
+tile_data = PoolIntArray(  )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 448 )
+
+[node name="Seeweeds" type="Node" parent="."]
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Fishes" type="Node" parent="."]
+
+[node name="Collectable" type="Node" parent="Fishes"]
+
+[node name="Static" type="Node" parent="Fishes"]
+
+[node name="Enemy" type="Node" parent="Fishes"]
+
+[node name="Friendly" type="Node" parent="Fishes"]
