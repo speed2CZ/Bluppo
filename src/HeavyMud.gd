@@ -1,6 +1,7 @@
 extends MovableObject
 
 onready var animation = $AnimatedSprite
+onready var visNotifier = $VisibilityNotifier2D
 
 # TODO: find out the correct timing and the spread pattern
 # Best guess from several observations:
@@ -29,13 +30,16 @@ func spreadSideways():
 		var Right = position + Vector2.RIGHT * Game.gridSize
 		var Left = position + Vector2.LEFT * Game.gridSize
 		if not Game.getObjectAtPosition(Right):
-			Game.spawnObject("objects", "HeavyMud", Right)
-			Game.playSound("HeavyMud")
+			spawnNewMud(Right)
 		if not Game.getObjectAtPosition(Left):
-			Game.spawnObject("objects", "HeavyMud", Left)
-			Game.playSound("HeavyMud")
+			spawnNewMud(Left)
 
 		tick = 0
+
+func spawnNewMud(pos):
+	if visNotifier.is_on_screen():
+		Game.playSound("HeavyMud")
+	Game.spawnObject("objects", "HeavyMud", pos)
 
 func onCollectedByPlayer(_playerId):
 	Game.playSound("SeaweedCollected")
