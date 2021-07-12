@@ -123,7 +123,6 @@ func restartLevel(instant:= false):
 
 # Set up targets for the cameras to follow and decide if to use splitscreen or not.
 func setCameras():
-	viewport2.world_2d = viewport1.world_2d
 	camera1.target = viewport1.get_child(1).get_node_or_null("Player1")
 	camera2.target = viewport1.get_child(1).get_node_or_null("Player2")
 	var tilemap = viewport1.get_child(1).get_node_or_null("TileMap")
@@ -132,6 +131,8 @@ func setCameras():
 
 	# Hide second player view and middle separation if there's only 1 player.
 	var splitScreen = camera2.target or false
+	if splitScreen:
+		viewport2.world_2d = viewport1.world_2d
 	viewport2.get_parent().visible = splitScreen
 	separation.visible = splitScreen
 	levelStats.togglePlayer2(splitScreen)
