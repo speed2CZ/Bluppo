@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/ui/Button_Border_Small.png" type="Texture" id=1]
 [ext_resource path="res://assets/Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/UserInterface/Button.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/Button_Empty_Small.png" type="Texture" id=4]
 
 [node name="TextureButton" type="TextureButton"]
 margin_right = 300.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 300, 48 )
+texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 1 )
 texture_hover = ExtResource( 1 )
 texture_focused = ExtResource( 1 )

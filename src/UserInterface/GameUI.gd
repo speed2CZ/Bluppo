@@ -13,6 +13,7 @@ onready var gameOverTexture = $GameOverTexture
 onready var transition = get_node("/root/Transition/AnimationPlayer")
 onready var pauseMenu = $PauseMenu
 onready var loadMenu = $LoadMenu
+onready var touchControls = $TouchControls
 
 var gameSession = false
 
@@ -37,6 +38,8 @@ func _unhandled_input(event):
 		return
 	elif not gameStarted:
 		startGame()
+		scene_tree.set_input_as_handled()
+		return
 
 	if event.is_action_pressed("ui_pause"):
 		self.paused = not paused
@@ -51,6 +54,10 @@ func _unhandled_input(event):
 		Game.gameSpeed -= 1
 	elif event.is_action_pressed("game_reset_speed"):
 		Game.gameSpeed = 6
+
+#func _notification(what):
+#	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+#		openPauseMenu()
 
 # Figures out next level from the current one and load it.
 # If there is no next level, switches back to the main menu.
@@ -142,16 +149,21 @@ func set_paused(value: bool):
 	paused = value
 	scene_tree.paused = value
 	pauseTexture.visible = value
+	gameStarted = not value
 
 # Opens the overlay with the pause menu and pauses the game.
 func openPauseMenu():
 	$UserInterface/Views.visible = false
 	self.paused = true
+	canStartGame = false
 	pauseMenu.open()
+	touchControls.changeControls(true)
 	scene_tree.set_input_as_handled()
 
 func closePauseMenu():
 	$UserInterface/Views.visible = true
+	touchControls.changeControls(false)
+	canStartGame = true
 
 # Sets the background, picked randomly each level
 func setBackground():

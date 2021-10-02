@@ -41,6 +41,10 @@ func _unhandled_input(event):
 		elif focusedButton == $Speed:
 			increaseSpeed()
 
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		$Exit.grab_focus()
+
 func open():
 	show()
 	# Select first button
