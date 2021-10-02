@@ -8,6 +8,7 @@ var bubbleTick = 2
 var bubbleType = "Small"
 
 func onTick():
+	moveObject()
 	bubbleThread()
 
 # Generate bubbles every other tick
