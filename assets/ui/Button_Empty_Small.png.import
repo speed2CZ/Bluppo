@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button_Border_Small.png-cecde7c3a3a1fb1cd876b8f3b11f1e95.stex"
+path="res://.import/Button_Empty_Small.png-ae6f4743d7810f9d5536d784870a5915.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Button_Border_Small.png"
-dest_files=[ "res://.import/Button_Border_Small.png-cecde7c3a3a1fb1cd876b8f3b11f1e95.stex" ]
+source_file="res://assets/ui/Button_Empty_Small.png"
+dest_files=[ "res://.import/Button_Empty_Small.png-ae6f4743d7810f9d5536d784870a5915.stex" ]
 
 [params]
 
