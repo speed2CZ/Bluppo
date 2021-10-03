@@ -33,8 +33,10 @@ func open():
 
 	#SoundManager.playSound("Theme")
 	
+	# Disable two player mode for mobile devices (since it's a split screen...)
 	if OS.has_touchscreen_ui_hint():
 		$Menu/TwoPlayersButton.disabled = true
+		$Menu/TwoPlayersButton.visible = false
 
 # Start single player game from level 1.
 func startSinglePlayer():
