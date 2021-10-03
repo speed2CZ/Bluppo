@@ -88,7 +88,6 @@ func _input(event):
 			loadPage(currentPage - 1)
 
 func loadPage(num):
-	print("Loading page" + str(num))
 	currentPage = min(max(1, num), pages.size())
 	
 	var currData = VGrid.get_children()

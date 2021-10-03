@@ -50,12 +50,20 @@ func startMultiplayer():
 # Display the instuctions screen, how to play the game, keybindings, etc.
 func showInstructions():
 	$Menu/InstructionsButton.release_focus()
-	print("instructions")
 	#visible = false
 
 	var instructions = load("res://scenes/screens/Instructions.tscn").instance()
 	add_child(instructions)
 	instructions.connect("closed", self, "open")
+
+# Display all time player stats.
+func showStatistics():
+	$Menu/StatisticsButton.release_focus()
+	#visible = false
+
+	var statistics = load("res://scenes/screens/Statistics.tscn").instance()
+	add_child(statistics)
+	statistics.connect("closed", self, "open")
 
 # Closes the game.
 func _on_ExitButton_pressed():

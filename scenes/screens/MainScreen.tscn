@@ -53,15 +53,23 @@ margin_bottom = 152.0
 [node name="Label" parent="Menu/InstructionsButton" index="0"]
 text = "Instructions"
 
-[node name="ExitButton" parent="Menu" instance=ExtResource( 3 )]
+[node name="StatisticsButton" parent="Menu" instance=ExtResource( 3 )]
 margin_top = 156.0
 margin_bottom = 204.0
+
+[node name="Label" parent="Menu/StatisticsButton" index="0"]
+text = "Statistics"
+
+[node name="ExitButton" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 208.0
+margin_bottom = 256.0
 
 [node name="Label" parent="Menu/ExitButton" index="0"]
 text = "Exit"
 [connection signal="pressed" from="Menu/OnePlayerButton" to="." method="startSinglePlayer"]
 [connection signal="pressed" from="Menu/TwoPlayersButton" to="." method="startMultiplayer"]
 [connection signal="pressed" from="Menu/InstructionsButton" to="." method="showInstructions"]
+[connection signal="pressed" from="Menu/StatisticsButton" to="." method="showStatistics"]
 [connection signal="pressed" from="Menu/ExitButton" to="." method="_on_ExitButton_pressed"]
 
 [editable path="Menu/OnePlayerButton"]
@@ -69,5 +77,7 @@ text = "Exit"
 [editable path="Menu/TwoPlayersButton"]
 
 [editable path="Menu/InstructionsButton"]
+
+[editable path="Menu/StatisticsButton"]
 
 [editable path="Menu/ExitButton"]
