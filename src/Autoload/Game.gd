@@ -69,6 +69,14 @@ func _physics_process(delta):
 		my_timer = timeStep
 		tick()
 
+func _notification(what):
+	# Handle Android back button as ESC key.
+	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		var a = InputEventAction.new()
+		a.action = "ui_cancel"
+		a.pressed = true
+		Input.parse_input_event(a)
+
 # Adjusts the game speed, if it's in the allowed range.
 # Sends a signal to the UI to update the game speed counter.
 # @param newSpeed - Index of the new game speed

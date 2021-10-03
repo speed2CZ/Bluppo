@@ -445,6 +445,7 @@ rect_min_size = Vector2( 128, 128 )
 [node name="TouchUp" type="TouchScreenButton" parent="TouchControls/UpDown/ControlUp"]
 normal = ExtResource( 19 )
 action = "Player1_Up"
+visibility_mode = 1
 
 [node name="ControlDown" type="Control" parent="TouchControls/UpDown"]
 margin_top = 132.0
@@ -455,6 +456,7 @@ rect_min_size = Vector2( 128, 128 )
 [node name="TouchDown" type="TouchScreenButton" parent="TouchControls/UpDown/ControlDown"]
 normal = ExtResource( 19 )
 action = "Player1_Down"
+visibility_mode = 1
 
 [node name="LeftRight" type="HBoxContainer" parent="TouchControls"]
 anchor_left = 1.0
@@ -478,6 +480,7 @@ rect_min_size = Vector2( 128, 128 )
 [node name="TouchLeft" type="TouchScreenButton" parent="TouchControls/LeftRight/ControlLeft"]
 normal = ExtResource( 19 )
 action = "Player1_Left"
+visibility_mode = 1
 
 [node name="ControlRight" type="Control" parent="TouchControls/LeftRight"]
 margin_left = 132.0
@@ -488,6 +491,7 @@ rect_min_size = Vector2( 128, 128 )
 [node name="TouchRight" type="TouchScreenButton" parent="TouchControls/LeftRight/ControlRight"]
 normal = ExtResource( 19 )
 action = "Player1_Right"
+visibility_mode = 1
 
 [node name="PauseBack" type="HBoxContainer" parent="TouchControls"]
 anchor_left = 1.0
@@ -510,6 +514,7 @@ rect_min_size = Vector2( 64, 64 )
 scale = Vector2( 0.999981, 1.00024 )
 normal = ExtResource( 23 )
 action = "ui_pause"
+visibility_mode = 1
 
 [node name="BackControl" type="Control" parent="TouchControls/PauseBack"]
 margin_left = 68.0
@@ -522,6 +527,7 @@ position = Vector2( 0.0478516, 0 )
 scale = Vector2( 0.997766, 0.998033 )
 normal = ExtResource( 22 )
 action = "ui_cancel"
+visibility_mode = 1
 
 [node name="BombControl" type="Control" parent="TouchControls"]
 anchor_left = 0.5
@@ -542,6 +548,7 @@ position = Vector2( 0.761302, 0.521859 )
 scale = Vector2( 0.998545, 1.0322 )
 normal = ExtResource( 21 )
 action = "Player1_Bomb"
+visibility_mode = 1
 [connection signal="pressed" from="PauseMenu/Continue" to="PauseMenu" method="_on_Continue_pressed"]
 [connection signal="pressed" from="PauseMenu/Restart" to="PauseMenu" method="_on_Restart_pressed"]
 [connection signal="pressed" from="PauseMenu/Load" to="PauseMenu" method="_on_Load_pressed"]

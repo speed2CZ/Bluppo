@@ -55,9 +55,10 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("game_reset_speed"):
 		Game.gameSpeed = 6
 
-#func _notification(what):
-#	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-#		openPauseMenu()
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
+		if not self.paused:
+			self.paused = true
 
 # Figures out next level from the current one and load it.
 # If there is no next level, switches back to the main menu.

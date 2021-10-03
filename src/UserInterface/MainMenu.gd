@@ -32,9 +32,12 @@ func open():
 	menu.get_children()[0].grab_focus()
 
 	#SoundManager.playSound("Theme")
+	
+	if OS.has_touchscreen_ui_hint():
+		$Menu/TwoPlayersButton.disabled = true
 
 # Start single player game from level 1.
-func startSinglePlayer():	
+func startSinglePlayer():
 	startGame("res://scenes/levels/Level_001.tscn")
 
 	#startGame("res://scenes/levels/Level_Test_001.tscn")
