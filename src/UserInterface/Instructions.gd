@@ -83,6 +83,9 @@ func _unhandled_input(event):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
+			if currentPage == pages.size():
+				close()
+
 			loadPage(currentPage + 1)
 		elif event.button_index == BUTTON_RIGHT and event.pressed:
 			loadPage(currentPage - 1)

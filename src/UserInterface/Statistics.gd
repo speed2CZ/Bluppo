@@ -37,6 +37,11 @@ func _unhandled_input(event):
 		get_tree().set_input_as_handled()
 		close()
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			close()
+
 func close():
 	emit_signal("closed")
 	queue_free()
