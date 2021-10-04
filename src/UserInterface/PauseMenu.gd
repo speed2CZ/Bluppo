@@ -52,6 +52,7 @@ func close():
 	visible = false
 
 func _on_Continue_pressed():
+	get_tree().set_input_as_handled()
 	close()
 
 func _on_Restart_pressed():
