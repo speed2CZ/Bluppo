@@ -4,16 +4,6 @@ signal closed
 
 var mode = "load"
 
-func _ready():
-	var savedGames = SaveLoad.getSavedGames()
-	var buttons = get_children()
-	for index in buttons.size():
-		var text = savedGames[index+1]
-		text.erase(0, text.rfind("/") + 1)
-		text.erase(text.length() - 5, 5)
-		text.replace("_", " ")
-		buttons[index].setText(text)
-
 func _unhandled_input(event):
 	if not visible:
 		return
@@ -24,9 +14,26 @@ func _unhandled_input(event):
 		get_parent().openPauseMenu()
 
 func open(type):
+	var savedGames = SaveLoad.getSavedGames()
+	var buttons = get_children()
+
+	# Set the title
+	if type == "load":
+		$Title.text = "LOAD GAME"
+	else:
+		$Title.text = "SAVE GAME"
+
+	# Rename the buttons with the saved games
+	for index in range(1, buttons.size()):
+		var text = savedGames[index]
+		text.erase(0, text.rfind("/") + 1)
+		text.erase(text.length() - 5, 5)
+		text.replace("_", " ")
+		buttons[index].setText(text)
+
 	visible = true
 	mode = type
-	get_children()[0].grab_focus()
+	get_children()[1].grab_focus()
 
 func close():
 	visible = false

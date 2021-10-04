@@ -1,0 +1,142 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/UserInterface/TouchControls.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/Button_Menu.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/Button_Bomb.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/Button_Touch.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/Button Pause.png" type="Texture" id=5]
+
+[node name="TouchControls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpDown" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_right = 64.0
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlUp" type="Control" parent="UpDown"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="TouchUp" type="TouchScreenButton" parent="UpDown/ControlUp"]
+normal = ExtResource( 4 )
+action = "Player1_Up"
+visibility_mode = 1
+
+[node name="ControlDown" type="Control" parent="UpDown"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="TouchDown" type="TouchScreenButton" parent="UpDown/ControlDown"]
+normal = ExtResource( 4 )
+action = "Player1_Down"
+visibility_mode = 1
+
+[node name="LeftRight" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_right = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlLeft" type="Control" parent="LeftRight"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="TouchLeft" type="TouchScreenButton" parent="LeftRight/ControlLeft"]
+normal = ExtResource( 4 )
+action = "Player1_Left"
+visibility_mode = 1
+
+[node name="ControlRight" type="Control" parent="LeftRight"]
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="TouchRight" type="TouchScreenButton" parent="LeftRight/ControlRight"]
+normal = ExtResource( 4 )
+action = "Player1_Right"
+visibility_mode = 1
+
+[node name="PauseBack" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -68.0
+margin_bottom = 32.0
+grow_horizontal = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseControl" type="Control" parent="PauseBack"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TouchPause" type="TouchScreenButton" parent="PauseBack/PauseControl"]
+scale = Vector2( 0.999981, 1.00024 )
+normal = ExtResource( 5 )
+action = "ui_pause"
+visibility_mode = 1
+
+[node name="BackControl" type="Control" parent="PauseBack"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TouchBack" type="TouchScreenButton" parent="PauseBack/BackControl"]
+position = Vector2( 0.0478516, 0 )
+scale = Vector2( 0.997766, 0.998033 )
+normal = ExtResource( 2 )
+action = "ui_cancel"
+visibility_mode = 1
+
+[node name="BombControl" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -91.0
+margin_right = 391.0
+margin_bottom = -8.0
+rect_min_size = Vector2( 600, 70 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchBomb" type="TouchScreenButton" parent="BombControl"]
+position = Vector2( 0.761302, 0.521859 )
+scale = Vector2( 0.998545, 1.0322 )
+normal = ExtResource( 3 )
+action = "Player1_Bomb"
+visibility_mode = 1

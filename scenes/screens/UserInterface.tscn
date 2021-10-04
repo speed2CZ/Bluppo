@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/ui/Get_Ready2.png" type="Texture" id=1]
 [ext_resource path="res://src/UserInterface/GameUI.gd" type="Script" id=2]
@@ -14,15 +14,16 @@
 [ext_resource path="res://assets/ui/GameSpeedBorder.png" type="Texture" id=12]
 [ext_resource path="res://src/UserInterface/PauseMenu.gd" type="Script" id=13]
 [ext_resource path="res://scenes/screens/UIButton.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/Font.tres" type="DynamicFont" id=15]
+[ext_resource path="res://assets/Moder DOS 437 Win.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://scenes/screens/LoadMenu.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/ui/Game_Over2.png" type="Texture" id=17]
 [ext_resource path="res://scenes/screens/UIStatusButton.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/ui/Button_Touch.png" type="Texture" id=19]
-[ext_resource path="res://src/UserInterface/TouchControls.gd" type="Script" id=20]
-[ext_resource path="res://assets/ui/Button_Bomb.png" type="Texture" id=21]
-[ext_resource path="res://assets/ui/Button_Menu.png" type="Texture" id=22]
-[ext_resource path="res://assets/ui/Button Pause.png" type="Texture" id=23]
+[ext_resource path="res://scenes/TouchControls.tscn" type="PackedScene" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 15 )
 
 [node name="Main" type="Node"]
 pause_mode = 2
@@ -138,7 +139,7 @@ margin_left = 266.0
 margin_top = -9.0
 margin_right = 320.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = SubResource( 1 )
 text = "000"
 align = 1
 valign = 1
@@ -153,7 +154,7 @@ margin_left = 99.0
 margin_top = -9.0
 margin_right = 135.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = SubResource( 1 )
 text = "10"
 align = 1
 __meta__ = {
@@ -164,10 +165,10 @@ __meta__ = {
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 1161.0
-margin_top = -9.0
+margin_top = -10.0
 margin_right = 1215.0
-margin_bottom = 24.0
-custom_fonts/font = ExtResource( 15 )
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 1 )
 text = "001"
 align = 1
 valign = 1
@@ -415,140 +416,7 @@ text = "exit game"
 [node name="LoadMenu" parent="." instance=ExtResource( 16 )]
 visible = false
 
-[node name="TouchControls" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="UpDown" type="VBoxContainer" parent="TouchControls"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 32.0
-margin_right = 64.0
-grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ControlUp" type="Control" parent="TouchControls/UpDown"]
-margin_right = 128.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 128, 128 )
-
-[node name="TouchUp" type="TouchScreenButton" parent="TouchControls/UpDown/ControlUp"]
-normal = ExtResource( 19 )
-action = "Player1_Up"
-visibility_mode = 1
-
-[node name="ControlDown" type="Control" parent="TouchControls/UpDown"]
-margin_top = 132.0
-margin_right = 128.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 128, 128 )
-
-[node name="TouchDown" type="TouchScreenButton" parent="TouchControls/UpDown/ControlDown"]
-normal = ExtResource( 19 )
-action = "Player1_Down"
-visibility_mode = 1
-
-[node name="LeftRight" type="HBoxContainer" parent="TouchControls"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_right = -32.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ControlLeft" type="Control" parent="TouchControls/LeftRight"]
-margin_right = 128.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 128, 128 )
-
-[node name="TouchLeft" type="TouchScreenButton" parent="TouchControls/LeftRight/ControlLeft"]
-normal = ExtResource( 19 )
-action = "Player1_Left"
-visibility_mode = 1
-
-[node name="ControlRight" type="Control" parent="TouchControls/LeftRight"]
-margin_left = 132.0
-margin_right = 260.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 128, 128 )
-
-[node name="TouchRight" type="TouchScreenButton" parent="TouchControls/LeftRight/ControlRight"]
-normal = ExtResource( 19 )
-action = "Player1_Right"
-visibility_mode = 1
-
-[node name="PauseBack" type="HBoxContainer" parent="TouchControls"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -68.0
-margin_bottom = 32.0
-grow_horizontal = 0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PauseControl" type="Control" parent="TouchControls/PauseBack"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-
-[node name="TouchPause" type="TouchScreenButton" parent="TouchControls/PauseBack/PauseControl"]
-scale = Vector2( 0.999981, 1.00024 )
-normal = ExtResource( 23 )
-action = "ui_pause"
-visibility_mode = 1
-
-[node name="BackControl" type="Control" parent="TouchControls/PauseBack"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-
-[node name="TouchBack" type="TouchScreenButton" parent="TouchControls/PauseBack/BackControl"]
-position = Vector2( 0.0478516, 0 )
-scale = Vector2( 0.997766, 0.998033 )
-normal = ExtResource( 22 )
-action = "ui_cancel"
-visibility_mode = 1
-
-[node name="BombControl" type="Control" parent="TouchControls"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -256.0
-margin_top = -91.0
-margin_right = 391.0
-margin_bottom = -8.0
-rect_min_size = Vector2( 600, 70 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TouchBomb" type="TouchScreenButton" parent="TouchControls/BombControl"]
-position = Vector2( 0.761302, 0.521859 )
-scale = Vector2( 0.998545, 1.0322 )
-normal = ExtResource( 21 )
-action = "Player1_Bomb"
-visibility_mode = 1
+[node name="TouchControls" parent="." instance=ExtResource( 19 )]
 [connection signal="pressed" from="PauseMenu/Continue" to="PauseMenu" method="_on_Continue_pressed"]
 [connection signal="pressed" from="PauseMenu/Restart" to="PauseMenu" method="_on_Restart_pressed"]
 [connection signal="pressed" from="PauseMenu/Load" to="PauseMenu" method="_on_Load_pressed"]
