@@ -98,18 +98,32 @@ margin_bottom = 256.0
 custom_fonts/font = SubResource( 5 )
 text = "Exit"
 
-[node name="LineEdit" type="LineEdit" parent="Menu"]
+[node name="LevelSelect" type="LineEdit" parent="Menu"]
+visible = false
 margin_top = 260.0
 margin_right = 300.0
 margin_bottom = 284.0
 max_length = 14
 context_menu_enabled = false
+
+[node name="LevelSelectEnabler" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -64.0
+rect_min_size = Vector2( 64, 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Menu/OnePlayerButton" to="." method="startSinglePlayer"]
 [connection signal="pressed" from="Menu/TwoPlayersButton" to="." method="startMultiplayer"]
 [connection signal="pressed" from="Menu/InstructionsButton" to="." method="showInstructions"]
 [connection signal="pressed" from="Menu/StatisticsButton" to="." method="showStatistics"]
 [connection signal="pressed" from="Menu/ExitButton" to="." method="_on_ExitButton_pressed"]
-[connection signal="text_entered" from="Menu/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_entered" from="Menu/LevelSelect" to="." method="_on_LineEdit_text_entered"]
+[connection signal="gui_input" from="LevelSelectEnabler" to="." method="_on_LevelSelectEnabler_gui_input"]
 
 [editable path="Menu/OnePlayerButton"]
 

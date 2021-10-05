@@ -105,6 +105,18 @@ func startGame(level):
 	# Remove the main menu
 	queue_free()
 
-
+# Top secret chaety level select
 func _on_LineEdit_text_entered(new_text):
 	startGame("res://scenes/levels/"+ new_text +".tscn")
+
+var levelSelectNum = 0
+func _on_LevelSelectEnabler_gui_input(event):
+	if levelSelectNum == 5:
+		return
+
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			levelSelectNum += 1
+
+			if levelSelectNum == 5:
+				$Menu/LevelSelect.visible = true
