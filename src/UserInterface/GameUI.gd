@@ -30,6 +30,10 @@ func _ready():
 	_x = Game.connect("game_Over", self, "gameOver")
 	_x = pauseMenu.connect("closed", self, "closePauseMenu")
 	_x = loadMenu.connect("closed", self, "closePauseMenu")
+	
+	# Stop the game music if it's playing.
+	if SoundManager.mode == "MUSIC":
+		SoundManager.playSound("Game")
 
 func _unhandled_input(event):
 	# Wait for the init animation
@@ -202,6 +206,9 @@ func gameOver():
 
 # Fade the screen and return to the main menu.
 func close(slow := false):
+	# Stop the game music if it's playing.
+	SoundManager.stopSound("Game")
+
 	# Slow transition used only with game over
 	if slow:
 		transition.play("fade_in_slow")

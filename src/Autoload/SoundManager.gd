@@ -8,7 +8,7 @@ signal new_Volume(value)
 
 # OG Bluppo had two modes for sounds. One where all effetcs would play in the game
 # and second where only the music would play. Could do both, but sticking to the original.
-var mode = "SFX"
+var mode = "MUSIC"
 var bank = {}
 # Sounds that can start playing again even if not finished yet
 var multiple = ["BombActive", "Explosion", "Pushed", "SeaweedCollected", "SlipOff"]
@@ -33,10 +33,12 @@ func _ready():
 	
 	var volume = Options.getOption("volume")
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
+	
+	mode = Options.getOption("musicMode")
 
 func playSound(sound):
-	if mode == "MUSIC" and not uiSounds.has(sound):
-		return
+	#if mode == "MUSIC" and not uiSounds.has(sound):
+	#	return
 
 	if bank.has(sound):
 		if exclusive.has(sound) and bank[exclusive[sound]].is_playing():
@@ -60,13 +62,13 @@ func getSound(sound):
 # Switches between sound effects and just playng a music.
 func toggleMusic():
 	if mode == "SFX":
-		print("*DEBUG: SoundManager: Switching to MUSIC mode.")
-		playSound("Theme") #Music
+		playSound("Game")
 		mode = "MUSIC"
 	else:
-		print("*DEBUG: SoundManager: Switching to SFX mode.")
-		stopSound("Theme") #Music
+		stopSound("Game")
 		mode = "SFX"
+
+	Options.setOption("musicMode", mode)
 
 func decreaseVolume():
 	#var current = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))

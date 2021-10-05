@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://sounds/HeavyMud.wav" type="AudioStream" id=1]
 [ext_resource path="res://sounds/ExitOpen.wav" type="AudioStream" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://sounds/UI_Accept.wav" type="AudioStream" id=28]
 [ext_resource path="res://sounds/Theme.ogg" type="AudioStream" id=29]
 [ext_resource path="res://sounds/UI_Move.wav" type="AudioStream" id=30]
+[ext_resource path="res://sounds/Instructions.ogg" type="AudioStream" id=31]
+[ext_resource path="res://sounds/Game.ogg" type="AudioStream" id=32]
 
 [node name="SoundBank" type="Node"]
 pause_mode = 2
@@ -117,6 +119,15 @@ stream = ExtResource( 25 )
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
+volume_db = -10.0
+
+[node name="Game" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+volume_db = -10.0
+
+[node name="Instructions" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = -10.0
 
 [node name="UI_Accept" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 28 )

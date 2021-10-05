@@ -1,8 +1,34 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/ui/MainMenu.png" type="Texture" id=1]
 [ext_resource path="res://src/UserInterface/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/screens/UIButtonSmall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Moder DOS 437 Win.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+resource_local_to_scene = true
+size = 32
+font_data = ExtResource( 4 )
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -37,6 +63,7 @@ __meta__ = {
 [node name="OnePlayerButton" parent="Menu" instance=ExtResource( 3 )]
 
 [node name="Label" parent="Menu/OnePlayerButton" index="0"]
+custom_fonts/font = SubResource( 1 )
 text = "1 Player"
 
 [node name="TwoPlayersButton" parent="Menu" instance=ExtResource( 3 )]
@@ -44,6 +71,7 @@ margin_top = 52.0
 margin_bottom = 100.0
 
 [node name="Label" parent="Menu/TwoPlayersButton" index="0"]
+custom_fonts/font = SubResource( 2 )
 text = "2 players"
 
 [node name="InstructionsButton" parent="Menu" instance=ExtResource( 3 )]
@@ -51,6 +79,7 @@ margin_top = 104.0
 margin_bottom = 152.0
 
 [node name="Label" parent="Menu/InstructionsButton" index="0"]
+custom_fonts/font = SubResource( 3 )
 text = "Instructions"
 
 [node name="StatisticsButton" parent="Menu" instance=ExtResource( 3 )]
@@ -58,6 +87,7 @@ margin_top = 156.0
 margin_bottom = 204.0
 
 [node name="Label" parent="Menu/StatisticsButton" index="0"]
+custom_fonts/font = SubResource( 4 )
 text = "Statistics"
 
 [node name="ExitButton" parent="Menu" instance=ExtResource( 3 )]
@@ -65,12 +95,21 @@ margin_top = 208.0
 margin_bottom = 256.0
 
 [node name="Label" parent="Menu/ExitButton" index="0"]
+custom_fonts/font = SubResource( 5 )
 text = "Exit"
+
+[node name="LineEdit" type="LineEdit" parent="Menu"]
+margin_top = 260.0
+margin_right = 300.0
+margin_bottom = 284.0
+max_length = 14
+context_menu_enabled = false
 [connection signal="pressed" from="Menu/OnePlayerButton" to="." method="startSinglePlayer"]
 [connection signal="pressed" from="Menu/TwoPlayersButton" to="." method="startMultiplayer"]
 [connection signal="pressed" from="Menu/InstructionsButton" to="." method="showInstructions"]
 [connection signal="pressed" from="Menu/StatisticsButton" to="." method="showStatistics"]
 [connection signal="pressed" from="Menu/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="text_entered" from="Menu/LineEdit" to="." method="_on_LineEdit_text_entered"]
 
 [editable path="Menu/OnePlayerButton"]
 

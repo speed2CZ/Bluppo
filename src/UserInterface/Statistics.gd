@@ -3,6 +3,7 @@ extends Control
 signal closed
 
 onready var VGrid = $VBoxContainer
+onready var transition = get_node("/root/Transition/AnimationPlayer")
 
 var statToNode = {
 	"BombsCollected": "Bomb",
@@ -28,6 +29,9 @@ func _ready():
 				node.text = node.text % [stats[stat], stats["BombsUsed"]]
 			else:
 				node.text = node.text % stats[stat]
+	
+	# Init animation
+	transition.play("fade_out")
 
 func _unhandled_input(event):
 	if not visible:
@@ -43,5 +47,9 @@ func _input(event):
 			close()
 
 func close():
+	# Play transition animation
+	transition.play("fade_in")
+	yield(transition, "animation_finished")
+
 	emit_signal("closed")
 	queue_free()

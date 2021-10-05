@@ -31,7 +31,7 @@ func open():
 	# Select the first button
 	menu.get_children()[0].grab_focus()
 
-	#SoundManager.playSound("Theme")
+	SoundManager.playSound("Theme")
 	
 	# Disable two player mode for mobile devices (since it's a split screen...)
 	if OS.has_touchscreen_ui_hint():
@@ -42,7 +42,7 @@ func open():
 func startSinglePlayer():
 	startGame("res://scenes/levels/Level_001.tscn")
 
-	#startGame("res://scenes/levels/Level_Test_001.tscn")
+	#startGame("res://scenes/levels/Level_Test_009.tscn")
 	#startGame("res://scenes/levels/Level_042.tscn")
 
 # Start split screen game from level 1.
@@ -51,8 +51,14 @@ func startMultiplayer():
 
 # Display the instuctions screen, how to play the game, keybindings, etc.
 func showInstructions():
+	# Stop the theme song
+	SoundManager.stopSound("Theme")
+
+	# Play transition animation
+	transition.play("fade_in")
+	yield(transition, "animation_finished")
+
 	$Menu/InstructionsButton.release_focus()
-	#visible = false
 
 	var instructions = load("res://scenes/screens/Instructions.tscn").instance()
 	add_child(instructions)
@@ -60,8 +66,11 @@ func showInstructions():
 
 # Display all time player stats.
 func showStatistics():
+	# Play transition animation
+	transition.play("fade_in")
+	yield(transition, "animation_finished")
+	
 	$Menu/StatisticsButton.release_focus()
-	#visible = false
 
 	var statistics = load("res://scenes/screens/Statistics.tscn").instance()
 	add_child(statistics)
@@ -95,3 +104,7 @@ func startGame(level):
 
 	# Remove the main menu
 	queue_free()
+
+
+func _on_LineEdit_text_entered(new_text):
+	startGame("res://scenes/levels/"+ new_text +".tscn")

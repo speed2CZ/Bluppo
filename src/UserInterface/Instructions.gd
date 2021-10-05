@@ -3,6 +3,7 @@ extends Control
 signal closed
 
 onready var VGrid = $VBoxContainer
+onready var transition = get_node("/root/Transition/AnimationPlayer")
 
 var currentPage = 1
 var pages = [
@@ -66,6 +67,11 @@ var pages = [
 ]
 
 func _ready():
+	SoundManager.playSound("Instructions")
+	
+	# Init animation
+	transition.play("fade_out")
+
 	loadPage(1)
 
 func _unhandled_input(event):
@@ -118,5 +124,12 @@ func loadPage(num):
 		HBox.add_child(text)
 
 func close():
+	# Stop the instructions song
+	SoundManager.stopSound("Instructions")
+
+	# Play transition animation
+	transition.play("fade_in")
+	yield(transition, "animation_finished")
+
 	emit_signal("closed")
 	queue_free()

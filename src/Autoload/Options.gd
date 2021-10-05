@@ -1,7 +1,7 @@
 extends Node
 
 var options = {
-	"musicMode": "SFX",
+	"musicMode": "MUSIC",
 	"volume": 10,
 	"speed": 6,
 }
