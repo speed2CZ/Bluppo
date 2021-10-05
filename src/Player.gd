@@ -191,3 +191,11 @@ func drownedCheck(playerId, value):
 		animation.play("drowned")
 		Game.playSound("OutOfOxygen")
 		Game.playerDied()
+
+func destroy():
+	Game.releasePosition(position)
+	# Release built crashes when the camera is trying to follow destroyed object, this resets the camera when the player dies or exits.
+	var camera = get_node_or_null("/root/Main/UserInterface/Views/ViewportContainer%d/Viewport%d/Camera%d" % [id, id, id])
+	if camera:
+		camera.target = null
+	queue_free()
