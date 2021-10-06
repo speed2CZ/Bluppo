@@ -5,5 +5,4 @@ func _ready():
 
 func onCollectedByPlayer(_id):
 	PlayerData.records["SeaWeedsCollected"] += 1
-	Game.playSound("SeaweedCollected")
-	destroy()
+	.onCollectedByPlayer(_id)
