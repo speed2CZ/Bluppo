@@ -42,8 +42,8 @@ func open():
 func startSinglePlayer():
 	startGame("res://scenes/levels/Level_001.tscn")
 
-	#startGame("res://scenes/levels/Level_Test_009.tscn")
 	#startGame("res://scenes/levels/Level_042.tscn")
+	#startGame("res://scenes/levels/new/Level_Test_009.tscn")
 
 # Start split screen game from level 1.
 func startMultiplayer():
