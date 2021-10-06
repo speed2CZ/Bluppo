@@ -3,6 +3,11 @@ extends Camera2D
 # Target object to follow.
 var target = null
 
+var originalZoom = Vector2()
+
+func _ready():
+	originalZoom = zoom
+
 func _physics_process(_delta):
 	if target:
 		position = target.position
@@ -15,9 +20,9 @@ func setUpCamera(tileMap):
 	limit_bottom = rec.end.y * Game.gridSize
 
 	var projectResolution = Vector2(ProjectSettings.get("display/window/size/width"),
-		ProjectSettings.get("display/window/size/height"))
-	var x = min(zoom.x, 1 / (projectResolution.x / (rec.end.x * Game.gridSize)))
-	var y = min(zoom.y, 1 / (projectResolution.y / (rec.end.y * Game.gridSize)))
+		ProjectSettings.get("display/window/size/height") - 96) #96 is height of the bottom texture
+	var x = min(originalZoom.x, 1 / (projectResolution.x / (rec.end.x * Game.gridSize)))
+	var y = min(originalZoom.y, 1 / (projectResolution.y / (rec.end.y * Game.gridSize)))
 	if x < y:
 		y = x
 	elif y < x:
