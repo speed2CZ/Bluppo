@@ -40,7 +40,7 @@ func _unhandled_input(event):
 	if not canStartGame:
 		scene_tree.set_input_as_handled()
 		return
-	elif not gameStarted:
+	elif not gameStarted and event.is_pressed():
 		startGame()
 		scene_tree.set_input_as_handled()
 		return
