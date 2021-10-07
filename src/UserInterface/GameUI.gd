@@ -160,6 +160,8 @@ func set_paused(value: bool):
 func openPauseMenu():
 	$UserInterface/Views.visible = false
 	self.paused = true
+	pauseTexture.visible = false
+	$GetReadyTexture.visible = false
 	canStartGame = false
 	pauseMenu.open()
 	touchControls.changeControls(true)
@@ -167,6 +169,7 @@ func openPauseMenu():
 
 func closePauseMenu():
 	$UserInterface/Views.visible = true
+	$GetReadyTexture.visible = true
 	touchControls.changeControls(false)
 	canStartGame = true
 
