@@ -28,7 +28,7 @@ func open(type):
 		var text = savedGames[index]
 		text.erase(0, text.rfind("/") + 1)
 		text.erase(text.length() - 5, 5)
-		text.replace("_", " ")
+		text = text.replace("_", " ")
 		buttons[index].setText(text)
 
 	visible = true
