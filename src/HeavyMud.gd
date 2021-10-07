@@ -40,3 +40,7 @@ func spawnNewMud(pos):
 	if visNotifier.is_on_screen():
 		Game.playSound("HeavyMud")
 	Game.spawnObject("objects", "HeavyMud", pos)
+
+func onCollectedByPlayer(_playerId):
+	Game.playSound("SeaweedCollected")
+	destroy()
