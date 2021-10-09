@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/screens/TileMap.tscn" type="PackedScene" id=3]
 
-[node name="Level_062" type="Node2D"]
+[node name="Level_061" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 1 )
 requiredFishes = 30
