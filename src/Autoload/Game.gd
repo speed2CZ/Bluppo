@@ -60,7 +60,7 @@ func _ready():
 	set_game_speed(int(Options.getOption("speed")))
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_open_pause_menu"):
 		get_tree().quit()
 
 func _physics_process(delta):
@@ -73,7 +73,7 @@ func _notification(what):
 	# Handle Android back button as ESC key.
 	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
 		var a = InputEventAction.new()
-		a.action = "ui_cancel"
+		a.action = "ui_open_pause_menu"
 		a.pressed = true
 		Input.parse_input_event(a)
 

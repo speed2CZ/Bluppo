@@ -50,7 +50,7 @@ func _unhandled_input(event):
 		scene_tree.set_input_as_handled()
 	elif event.is_action_pressed("ui_restart"):
 		restartLevel(true)
-	elif event.is_action_pressed("ui_cancel"):
+	elif event.is_action_pressed("ui_open_pause_menu"):
 		openPauseMenu()
 	elif event.is_action_pressed("game_increase_speed"):
 		Game.gameSpeed += 1
